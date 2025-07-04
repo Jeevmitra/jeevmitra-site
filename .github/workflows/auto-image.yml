@@ -27,9 +27,9 @@ jobs:
         python ai-engine/auto_image_bot.py
 
     - name: Commit and push changes
-      run: |
-        git config --global user.name "JeevMitra-AI"
-        git config --global user.email "bot@jeevmitra.ai"
-        git add images/ai/
-        git commit -m "🤖 Daily image & slogan update"
-        git push
+  run: |
+    git config --global user.name "JeevMitra-AI"
+    git config --global user.email "bot@jeevmitra.in"
+    git add images/ai/
+    git diff --cached --quiet || git commit -m "🤖 Auto updated AI image"
+    git push
