@@ -1,49 +1,66 @@
-
 import os
 import requests
 from datetime import datetime
+from PIL import Image, ImageDraw, ImageFont
 
-# Daily slogan list
+# 📍 Config
+SAVE_DIR = "images/ai"
 SLOGANS = [
-    "हर जानवर में भगवान का अंश होता है। 🙏",
-    "बेजुबानों की सेवा ही सच्ची सेवा है। ❤️",
-    "प्रेम बांटो, भोजन दो, जीवन दो। 🐾",
-    "गर्मी में परिंदों को पानी देना हमारा धर्म है। 🕊️",
-    "कुत्तों को दुत्कारो नहीं, दुआओं का हक़दार समझो। 🐶",
-    "सेवा करो, संवेदना फैलाओ, जीवन बचाओ। 🌱"
+    "बेजुबानों की सेवा, सबसे बड़ी मानवता है ❤️",
+    "गर्मी में पानी दो, दुआएँ पाओ 🐦",
+    "हर जानवर एक भावना है, वस्तु नहीं 🙏",
+    "कृपा करो, करुणा बाँटो 🐾",
+    "कुत्ते आपके दोस्त हैं, दुश्मन नहीं 🐶"
 ]
 
-# Get today's slogan
-today_slogan = SLOGANS[datetime.now().day % len(SLOGANS)]
+def get_today_slogan():
+    return SLOGANS[datetime.now().day % len(SLOGANS)]
 
-# Get image from the web (Unsplash API-like)
-def fetch_random_animal_image():
-    url = "https://source.unsplash.com/600x400/?dog,animal,bird"
+def fetch_image():
+    url = "https://source.unsplash.com/800x600/?dog,animal"
     response = requests.get(url)
     return response.url
 
-# Save image to local folder
-def save_image(image_url, save_path):
-    response = requests.get(image_url)
-    with open(save_path, 'wb') as f:
-        f.write(response.content)
+def download_image(url, save_path):
+    data = requests.get(url).content
+    with open(save_path, "wb") as f:
+        f.write(data)
 
-# Main logic
+def overlay_slogan(image_path, slogan):
+    img = Image.open(image_path)
+    draw = ImageDraw.Draw(img)
+
+    try:
+        font = ImageFont.truetype("DejaVuSans-Bold.ttf", 28)
+    except:
+        font = ImageFont.load_default()
+
+    # Calculate text position
+    margin = 20
+    width, height = img.size
+    text_width, text_height = draw.textsize(slogan, font=font)
+    x = (width - text_width) // 2
+    y = height - text_height - margin
+
+    # Black background rectangle
+    draw.rectangle([x - 10, y - 10, x + text_width + 10, y + text_height + 10], fill=(0, 0, 0, 160))
+    draw.text((x, y), slogan, font=font, fill="white")
+
+    img.save(image_path)
+
 def main():
-    img_url = fetch_random_animal_image()
-    now = datetime.now().strftime("%Y-%m-%d")
-    img_filename = f"daily_{now}.jpg"
-    save_dir = "images/ai/"
-    os.makedirs(save_dir, exist_ok=True)
-    save_path = os.path.join(save_dir, img_filename)
+    os.makedirs(SAVE_DIR, exist_ok=True)
+    today = datetime.now().strftime("%Y-%m-%d")
+    filename = f"{today}.jpg"
+    filepath = os.path.join(SAVE_DIR, filename)
 
-    save_image(img_url, save_path)
+    img_url = fetch_image()
+    download_image(img_url, filepath)
 
-    # Save slogan too
-    with open(f"{save_dir}slogan_{now}.txt", "w", encoding='utf-8') as f:
-        f.write(today_slogan)
+    slogan = get_today_slogan()
+    overlay_slogan(filepath, slogan)
 
-    print(f"✔️ Image and slogan saved for {now}")
+    print(f"✅ Saved {filename} with slogan: {slogan}")
 
 if __name__ == "__main__":
     main()
