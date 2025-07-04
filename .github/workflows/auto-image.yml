@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install requests
+        pip install -r ai-engine/requirements.txt
 
     - name: Run auto image bot
       run: |
