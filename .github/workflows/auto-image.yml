@@ -2,7 +2,7 @@ name: Auto Image Upload
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # रोज़ सुबह 7:30 IST (2:00 UTC)
+    - cron: '0 2 * * *'  # Every day at 2:00 AM UTC
   workflow_dispatch:
 
 jobs:
@@ -10,26 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        pip install -r ai-engine/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow requests
 
-    - name: Run auto image bot
-      run: |
-        python ai-engine/auto_image_bot.py
+      - name: Run auto image bot
+        run: python ai-engine/auto_image_bot.py
 
-    - name: Commit and push changes
-  run: |
-    git config --global user.name "JeevMitra-AI"
-    git config --global user.email "bot@jeevmitra.in"
-    git add images/ai/
-    git diff --cached --quiet || git commit -m "🤖 Auto updated AI image"
-    git push
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "JeevMitra-AI"
+          git config --global user.email "bot@jeevmitra.in"
+          git add images/ai/
+          git diff --cached --quiet || git commit -m "🤖 Auto updated AI image"
+          git push
