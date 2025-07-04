@@ -28,6 +28,11 @@ def download_image(url, save_path):
 
 def overlay_slogan(image_path, slogan):
     img = Image.open(image_path)
+    img.verify()
+    img = Image.open(image_path)
+except Exception as e:
+    print(f"Skipping image due to error: {e}")
+    continue
     draw = ImageDraw.Draw(img)
 
     try:
