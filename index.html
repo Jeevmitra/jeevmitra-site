@@ -1,117 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JeevMitra.org – Karuna aur Seva</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeevMitra - Animal Seva</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background-color: #fffdf7; color: #333; }
-    header { background-color: #6B8E23; color: white; padding: 40px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.8em; }
-    header p { font-size: 1.2em; margin-top: 10px; }
-    section { padding: 40px 20px; text-align: center; }
-    .donate-section { background-color: #fff3e0; }
-    .donate-section img { width: 220px; border-radius: 10px; border: 1px solid #ccc; }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 30px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      font-size: 1.1em;
-      border-radius: 5px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
     }
-    .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 10px; }
+    header {
+      background-image: url('dog1.jpg'); /* Cover image */
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      color: white;
+      text-align: center;
+      padding-top: 80px;
+      font-size: 32px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px black;
+    }
+    .content {
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
     .gallery img {
-      width: 200px;
-      height: auto;
+      max-width: 200px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     footer {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      font-size: 0.9em;
+      background: #222;
+      color: #eee;
       text-align: center;
-    }
-    footer a { color: #fff; text-decoration: underline; }
-    table.donor-table {
-      margin: 20px auto;
-      border-collapse: collapse;
-      width: 90%;
-    }
-    table.donor-table th, table.donor-table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: center;
-    }
-    table.donor-table th {
-      background-color: #f4f4f4;
+      padding: 15px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>JeevMitra.org</h1>
-  <p>Karuna se Bandhe Jaan, Har Daan ki Pehchaan</p>
-</header>
+  <header>
+    JeevMitra - Animal Seva
+  </header>
 
-<section id="about">
-  <h2>About JeevMitra</h2>
-  <p>JeevMitra ek seva yatra hai jisme hum gaaye, kutte, pakshi aur sab praniyon ke liye bhojan, ilaaj aur sneha pahunchate hain. Aapka saath, unki suraksha!</p>
-</section>
-
-<section id="how-to-help">
-  <h2>How You Can Help</h2>
-  <p>🫶 Daan dijiyega — chahe ₹11 ho ya ₹1100</p>
-  <p>🌱 Volunteer ban sakte hain seva mein</p>
-  <p>📢 Apne parivar aur doston ko batayein</p>
-</section>
-
-<section id="donate" class="donate-section">
-  <h2>Donate Now</h2>
-  <p><strong>UPI ID:</strong> 7357897775@ptyes</p>
-  <img src="assets/img/upi-qr-code.png" alt="UPI QR Code" />
-  <p style="margin-top: 10px; color: #555;">Bank: State Bank of India</p>
-  <a class="btn" href="upi://pay?pa=7357897775@ptyes&pn=JeevMitra&cu=INR">Pay Now via UPI</a>
-  <p style="margin-top: 30px; color: #666;">
-    Aapka har daan ek kahani hai. <br />
-    Daan dene ke baad apni photo WhatsApp karein — hum usse site par dikhayenge!
-  </p>
-  <p>
-    📸 WhatsApp: <a href="https://wa.me/91XXXXXXXXXX">Click here to send photo</a>
-  </p>
-</section>
-
-<section class="gallery-section">
-  <h2>Karuna ki Dastaan (Gallery)</h2>
-  <div class="gallery">
-    <img src="assets/img/dog1.jpg" alt="Street Dog Drinking Water">
-    <img src="assets/img/dog2.jpg" alt="Dog Eating Food">
-    <img src="assets/img/dog3.jpg" alt="Dog Being Treated">
-    <img src="assets/img/dog4.jpg" alt="Dog Resting Peacefully">
-    <img src="assets/img/dog5.jpg" alt="Dog Being Fed">
-    <img src="assets/img/dog6.jpg" alt="Dog Drinking Clean Water">
-    <img src="assets/img/dog7.jpg" alt="Dog Playing">
-    <img src="assets/img/dog8.jpg" alt="Dog Care">
-    <img src="assets/img/dog9.jpg" alt="Happy Dog">
-    <img src="assets/img/dog10.jpg" alt="Dog with Donor">
+  <div class="content">
+    <h2>Our Seva for Street Dogs</h2>
+    <div class="gallery">
+      <img src="dog1.jpg" alt="Dog 1">
+      <img src="dog2.jpg" alt="Dog 2">
+      <img src="dog3.png" alt="Dog 3">
+      <img src="dog4.jpg" alt="Dog 4">
+      <img src="dog5.jpg" alt="Dog 5">
+      <img src="dog6.jpg" alt="Dog 6">
+      <img src="dog8.jpg" alt="Dog 8">
+    </div>
   </div>
-</section>
 
-<section id="donors">
-  <h2>🙏 Our Donors</h2>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOs0bW8g15pu_vWDdi4t_hzzQ3XD__N3w0rS2lzUT6bMb_HYiHDGUkN3iEUt7WTDkNlsufJ6XnXwpK/pubhtml?widget=true&amp;headers=false" width="100%" height="400"></iframe>
-</section>
-
-<footer>
-  <p>© 2025 JeevMitra.org | Email: <a href="mailto:jeevmitra@seva.org">jeevmitra@seva.org</a></p>
-</footer>
+  <footer>
+    Donate now and support Animal Seva 🐶🐾 <br>
+    UPI ID: <b>7357897775@ptyes</b>
+  </footer>
 
 </body>
 </html>
+
