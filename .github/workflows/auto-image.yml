@@ -1,0 +1,35 @@
+name: Auto Image Upload
+
+on:
+  schedule:
+    - cron: "0 2 * * *"  # रोज़ सुबह 7:30 IST (2:00 UTC)
+  workflow_dispatch:
+
+jobs:
+  fetch-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run auto image bot
+      run: |
+        python ai-engine/auto_image_bot.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "JeevMitra-AI"
+        git config --global user.email "bot@jeevmitra.ai"
+        git add images/ai/
+        git commit -m "🤖 Daily image & slogan update"
+        git push
