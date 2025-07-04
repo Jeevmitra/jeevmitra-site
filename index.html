@@ -1,178 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JeevMitra – Animal Seva</title>
+  <title>JeevMitra - पशु सेवा</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fffaf0;
+      background-image: url('dog8.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
       color: #333;
     }
     header {
-      background: url('images/dog1.jpg') no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.6);
       color: white;
-      text-shadow: 2px 2px 6px black;
+      padding: 60px 20px;
       text-align: center;
-      padding: 20px;
+      background-image: url('dog5.jpg');
+      background-size: cover;
+      background-position: center;
     }
     header h1 {
       font-size: 3em;
-      background-color: rgba(0,0,0,0.4);
-      padding: 20px;
-      border-radius: 20px;
+      margin: 0;
+      text-shadow: 2px 2px 6px #000;
+    }
+    header p {
+      font-size: 1.4em;
+      margin-top: 10px;
+      text-shadow: 1px 1px 4px #000;
     }
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+      padding: 50px 20px;
+      background-color: rgba(255,255,255,0.9);
+      margin-bottom: 30px;
     }
-    .donate-section img {
-      width: 200px;
-      margin: 10px auto;
-      display: block;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
-    .gallery-item {
+    .image-grid div {
+      width: 280px;
       background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
+      border-radius: 15px;
       overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       text-align: center;
     }
-    .gallery-item img {
+    .image-grid img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      display: block;
     }
-    .gallery-item p {
+    .image-grid p {
       padding: 10px;
-      background-color: #f6f6f6;
-      margin: 0;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-    }
-    .stories {
-      background: #f0f9ff;
-      border-left: 5px solid #007acc;
-      padding: 20px;
-      margin: 20px 0;
-    }
-    .whatsapp {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .whatsapp a {
-      background: #25D366;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
       font-weight: bold;
     }
-    footer {
+    .donate-box {
       text-align: center;
+    }
+    .donate-box img {
+      max-width: 250px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    iframe {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+    footer {
+      background: #222;
+      color: #ddd;
       padding: 20px;
-      background-color: #222;
-      color: white;
+      text-align: center;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>JeevMitra – सेवा भाव से जीवन रक्षा</h1>
+  <h1>🐾 JeevMitra - एक सेवा भावना</h1>
+  <p>पशु और पक्षियों की सेवा ही सच्ची मानवता है</p>
 </header>
 
-<section class="donate-section">
-  <h2>🐾 Donate Now – जानवरों की मदद करें</h2>
-  <p>UPI ID: <strong>7357897775@ptyes</strong></p>
-  <img src="images/qr.png" alt="QR Code for donation">
-  <p>आपके एक छोटे से दान से किसी जानवर को भोजन, पानी या जीवन मिल सकता है।</p>
+<section>
+  <h2 style="text-align:center;">📸 हमारी सेवाएं</h2>
+  <div class="image-grid">
+    <div><img src="dog1.jpg"><p>भूखे को भोजन</p></div>
+    <div><img src="dog2.jpg"><p>बीमार का इलाज</p></div>
+    <div><img src="dog3.png"><p>गर्मी में पानी सेवा</p></div>
+    <div><img src="dog4.jpg"><p>सड़क किनारे सहारा</p></div>
+    <div><img src="dog5.jpg"><p>ममता की छांव</p></div>
+    <div><img src="dog6.jpg"><p>प्रसव के समय सहायता</p></div>
+    <div><img src="dog7.jpg"><p>हर जीव की रक्षा</p></div>
+    <div><img src="dog8.jpg"><p>प्यार और सहारा</p></div>
+  </div>
+</section>
+
+<section class="donate-box">
+  <h2>🙏 सहायता करें</h2>
+  <p>आपका छोटा सा योगदान किसी जानवर की जिंदगी बदल सकता है।</p>
+  <p><strong>UPI ID:</strong> 7357897775@ptyes</p>
+  <img src="scanner.jpg" alt="UPI QR Code">
 </section>
 
 <section>
-  <h2>📷 हमारी सेवा गैलरी</h2>
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="images/dog1.jpg" alt="dog1">
-      <p>एक कटोरी पानी, एक जीवन की डोर।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog2.jpg" alt="dog2">
-      <p>प्यासी आंखें कह रही हैं – धन्यवाद!</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog3.png" alt="dog3">
-      <p>हर जानवर को जीने का हक़ है।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog4.jpg" alt="dog4">
-      <p>वो घायल था, अब मुस्कुरा रहा है।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog5.jpg" alt="dog5">
-      <p>दया का एक निवाला – खुशियों की सौगात।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog6.jpg" alt="dog6">
-      <p>आपकी सेवा उसकी ज़िंदगी है।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog7.jpg" alt="dog7">
-      <p>कचरे से खाना ढूंढता – अब आपके साथ खाना खाता है।</p>
-    </div>
-    <div class="gallery-item">
-      <img src="images/dog8.jpg" alt="dog8">
-      <p>मौन प्रेम का सुंदर चेहरा।</p>
-    </div>
+  <h2 style="text-align:center;">📋 हमारे दानदाता</h2>
+  <div style="display: flex; justify-content: center;">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJWYXXfqCZx-auYdFN4vt5gnPWlYTGktcSLeD9xgtNAaZ_eP-CH_5zHO458ZueH1G0PC9cECQs2ebS/pubhtml?widget=true&amp;headers=false"
+      width="1000" height="500">
+    </iframe>
   </div>
 </section>
 
 <section>
-  <h2>🌟 हमारे दानदाता</h2>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNvnkEmz8JrU-RKci7S3qNNgRLkBtEnnKrF8Y7AqG7OLOxe3A3bfSoOG3FFtyYBQ/pubhtml?widget=true&amp;headers=false"></iframe>
+  <h2 style="text-align:center;">💖 Real JeevMitra Stories</h2>
+  <div class="image-grid">
+    <div><img src="dog1.jpg"><p>Tommy: इलाज से नई जिंदगी</p></div>
+    <div><img src="dog2.jpg"><p>Bird Pots: गर्मी में जीवनदायिनी सेवा</p></div>
+    <div><img src="dog6.jpg"><p>Rani: सुरक्षित प्रसव और गोद लिया गया</p></div>
+  </div>
 </section>
 
 <section>
-  <h2>❤️ जानवर प्रेमियों की प्रेरणादायक कहानियाँ</h2>
-  
-  <div class="stories">
-    <h3>सीमा दीदी – एक माँ जैसी ममता</h3>
-    <p>सीमा दीदी हर सुबह 10 स्ट्रीट डॉग्स को दूध और ब्रेड देती हैं। गर्मी हो या बरसात, वो कभी नहीं चूकतीं।</p>
-  </div>
-
-  <div class="stories">
-    <h3>राकेश जी – पानी वाला मसीहा</h3>
-    <p>राकेश जी ने अपने खर्चे से 50 पानी के बर्तन रखवाए हैं, ताकि गर्मी में कोई पक्षी प्यासा न मरे।</p>
-  </div>
-
-  <div class="stories">
-    <h3>आप भी बनें JeevMitra</h3>
-    <p>आपका छोटा सा योगदान किसी जानवर के लिए पूरी दुनिया बदल सकता है।</p>
-  </div>
+  <h2 style="text-align:center;">🌿 पक्षी जल सेवा</h2>
+  <p style="max-width: 800px; margin: auto; font-size: 1.1em; line-height: 1.6;">
+    गर्मी के दिनों में जब प्यास से पक्षी तड़पते हैं, तब आपकी दी गई मदद से हमने 70+ जल पात्र शहर की दीवारों पर लगाए।  
+    हर एक जल पात्र जीव रक्षा की परंपरा को आगे बढ़ा रहा है।
+  </p>
 </section>
 
-<section class="whatsapp">
-  <h2>📩 अपनी सेवा की तस्वीर भेजें</h2>
-  <a href="https://wa.me/917357897775" target="_blank">WhatsApp से फोटो भेजें</a>
+<section>
+  <h2 style="text-align:center; color: #8B0000;">🌳 अमृता देवी विश्नोई: बलिदान की मिसाल</h2>
+  <p style="max-width: 800px; margin: auto; font-size: 1.1em; line-height: 1.6;">
+    वर्ष 1730, जोधपुर के निकट खेजड़ली गाँव में <strong>अमृता देवी विश्नोई</strong> ने पेड़ों और जीवों की रक्षा के लिए अपने प्राण त्याग दिए।  
+    उनके साथ 363 विश्नोई समाज के लोगों ने बलिदान दिया।  
+    उनका वाक्य आज भी प्रेरणास्रोत है:  
+    <em>“सर सांतें रूख रहे तो भी सस्तो जाण”</em>  
+    <br><br>
+    राजस्थान की यह भूमि जीवों के लिए अपना सर्वस्व समर्पित करने वालों की भूमि है।
+  </p>
+  <div style="text-align: center; margin-top: 20px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Amrita_devi_bishnoi.jpg/800px-Amrita_devi_bishnoi.jpg" alt="Amrita Devi" style="max-width: 400px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+  </div>
 </section>
 
 <footer>
-  © 2025 JeevMitra | सेवा, संवेदना और समर्पण
+  © 2025 JeevMitra | सेवा ही धर्म है | Developed with ❤ by JeevPremi Team
 </footer>
 
 </body>
