@@ -32,7 +32,7 @@ def overlay_slogan(image_path, slogan):
     img = Image.open(image_path)
 except Exception as e:
     print(f"Skipping image due to error: {e}")
-    continue
+    return 
     draw = ImageDraw.Draw(img)
 
     try:
