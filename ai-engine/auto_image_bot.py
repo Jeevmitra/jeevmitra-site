@@ -26,7 +26,7 @@ def download_image(url, save_path):
     with open(save_path, "wb") as f:
         f.write(data)
 
-def overlay_slogan(image_path, slogan):def overlay_slogan(image_path, slogan):
+def overlay_slogan(image_path, slogan)
     if not os.path.exists(image_path) or os.path.getsize(image_path) < 1000:
         print(f"Skipping: {image_path} seems to be invalid or empty")
         return
