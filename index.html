@@ -3,144 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JeevMitra - Animal Seva Donation</title>
+  <title>JeevMitra – Animal Seva</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fffdf6;
+      background-color: #fffaf0;
       color: #333;
     }
-
     header {
-      background-color: #f16236;
+      background: url('images/dog1.jpg') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
+      text-shadow: 2px 2px 6px black;
+      text-align: center;
       padding: 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 20px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .donate-section img {
+      width: 200px;
+      margin: 10px auto;
+      display: block;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      overflow: hidden;
       text-align: center;
     }
-
-    header h1 {
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .gallery-item p {
+      padding: 10px;
+      background-color: #f6f6f6;
       margin: 0;
     }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      width: 220px;
-      background-color: #fff;
-      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .card p {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #444;
-    }
-
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-    }
-
     iframe {
-      display: block;
-      margin: 20px auto;
-      border: none;
-      width: 90%;
-      max-width: 700px;
+      width: 100%;
       height: 400px;
+      border: none;
     }
-
-    .payment-section {
-      background-color: #fff3e6;
-      padding: 30px 20px;
+    .stories {
+      background: #f0f9ff;
+      border-left: 5px solid #007acc;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .whatsapp {
       text-align: center;
-      border-top: 2px dashed #ff9900;
+      margin-top: 40px;
     }
-
-    .payment-section img {
-      width: 240px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .upi-id {
-      font-size: 18px;
+    .whatsapp a {
+      background: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
       font-weight: bold;
-      margin: 10px 0;
-      color: #333;
     }
-
-    .thanks {
-      font-size: 16px;
-      color: #555;
-      margin-top: 10px;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🐾 JeevMitra - Animal Seva Donation 🐶</h1>
-    <p>Help us serve street dogs and birds with water, food & love</p>
-  </header>
 
+<header>
+  <h1>JeevMitra – सेवा भाव से जीवन रक्षा</h1>
+</header>
+
+<section class="donate-section">
+  <h2>🐾 Donate Now – जानवरों की मदद करें</h2>
+  <p>UPI ID: <strong>7357897775@ptyes</strong></p>
+  <img src="images/qr.png" alt="QR Code for donation">
+  <p>आपके एक छोटे से दान से किसी जानवर को भोजन, पानी या जीवन मिल सकता है।</p>
+</section>
+
+<section>
+  <h2>📷 हमारी सेवा गैलरी</h2>
   <div class="gallery">
-    <div class="card">
-      <img src="dog1.jpg" alt="Clean Water, Happy Tail 🐾">
-      <p>Clean Water, Happy Tail 🐾</p>
+    <div class="gallery-item">
+      <img src="images/dog1.jpg" alt="dog1">
+      <p>एक कटोरी पानी, एक जीवन की डोर।</p>
     </div>
-    <div class="card">
-      <img src="dog2.jpg" alt="Play is Healing 💖">
-      <p>Play is Healing 💖</p>
+    <div class="gallery-item">
+      <img src="images/dog2.jpg" alt="dog2">
+      <p>प्यासी आंखें कह रही हैं – धन्यवाद!</p>
     </div>
-    <div class="card">
-      <img src="dog3.png" alt="Every Dog Deserves Care 🩺">
-      <p>Every Dog Deserves Care 🩺</p>
+    <div class="gallery-item">
+      <img src="images/dog3.png" alt="dog3">
+      <p>हर जानवर को जीने का हक़ है।</p>
     </div>
-    <div class="card">
-      <img src="dog4.jpg" alt="A Smile Worth Saving 😊">
-      <p>A Smile Worth Saving 😊</p>
+    <div class="gallery-item">
+      <img src="images/dog4.jpg" alt="dog4">
+      <p>वो घायल था, अब मुस्कुरा रहा है।</p>
     </div>
-    <div class="card">
-      <img src="dog5.jpg" alt="You Make This Possible 🙌">
-      <p>You Make This Possible 🙌</p>
+    <div class="gallery-item">
+      <img src="images/dog5.jpg" alt="dog5">
+      <p>दया का एक निवाला – खुशियों की सौगात।</p>
     </div>
-    <div class="card">
-      <img src="dog6.jpg" alt="Resting in Peace and Safety 🌙">
-      <p>Resting in Peace and Safety 🌙</p>
+    <div class="gallery-item">
+      <img src="images/dog6.jpg" alt="dog6">
+      <p>आपकी सेवा उसकी ज़िंदगी है।</p>
     </div>
-    <div class="card">
-      <img src="dog8.jpg" alt="Even Shadows Need Light 🌟">
-      <p>Even Shadows Need Light 🌟</p>
+    <div class="gallery-item">
+      <img src="images/dog7.jpg" alt="dog7">
+      <p>कचरे से खाना ढूंढता – अब आपके साथ खाना खाता है।</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/dog8.jpg" alt="dog8">
+      <p>मौन प्रेम का सुंदर चेहरा।</p>
     </div>
   </div>
+</section>
 
-  <h2>🙏 Our Donors</h2>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRjJmM0wLhrmhReNng9bmECGUOwB56xJxwtmPexQUoHD19NH8eH7Oqzq8QHz8cNUysopFjk-0nlh9aN/pubhtml?widget=true&amp;headers=false"></iframe>
+<section>
+  <h2>🌟 हमारे दानदाता</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQNvnkEmz8JrU-RKci7S3qNNgRLkBtEnnKrF8Y7AqG7OLOxe3A3bfSoOG3FFtyYBQ/pubhtml?widget=true&amp;headers=false"></iframe>
+</section>
 
-  <div class="payment-section">
-    <h2>💰 Donate Now</h2>
-    <img src="your_upi_qr.jpg" alt="Scan UPI to Donate" />
-    <div class="upi-id">📱 UPI ID: <strong>7357897775@ptyes</strong></div>
-    <div class="thanks">Every small help makes a big difference! Thank you! ❤️</div>
+<section>
+  <h2>❤️ जानवर प्रेमियों की प्रेरणादायक कहानियाँ</h2>
+  
+  <div class="stories">
+    <h3>सीमा दीदी – एक माँ जैसी ममता</h3>
+    <p>सीमा दीदी हर सुबह 10 स्ट्रीट डॉग्स को दूध और ब्रेड देती हैं। गर्मी हो या बरसात, वो कभी नहीं चूकतीं।</p>
   </div>
+
+  <div class="stories">
+    <h3>राकेश जी – पानी वाला मसीहा</h3>
+    <p>राकेश जी ने अपने खर्चे से 50 पानी के बर्तन रखवाए हैं, ताकि गर्मी में कोई पक्षी प्यासा न मरे।</p>
+  </div>
+
+  <div class="stories">
+    <h3>आप भी बनें JeevMitra</h3>
+    <p>आपका छोटा सा योगदान किसी जानवर के लिए पूरी दुनिया बदल सकता है।</p>
+  </div>
+</section>
+
+<section class="whatsapp">
+  <h2>📩 अपनी सेवा की तस्वीर भेजें</h2>
+  <a href="https://wa.me/917357897775" target="_blank">WhatsApp से फोटो भेजें</a>
+</section>
+
+<footer>
+  © 2025 JeevMitra | सेवा, संवेदना और समर्पण
+</footer>
+
 </body>
 </html>
 
