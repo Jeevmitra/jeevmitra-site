@@ -1,78 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeevMitra - Animal Seva</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JeevMitra - Animal Seva Donation</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-image: url('dog1.jpg'); /* Cover image */
-      background-size: cover;
-      background-position: center;
-      height: 250px;
-      color: white;
-      text-align: center;
-      padding-top: 80px;
-      font-size: 32px;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px black;
-    }
-    .content {
-      padding: 20px;
-    }
-    h2 {
-      text-align: center;
+      padding: 0;
+      background-color: #fffdf6;
       color: #333;
     }
+
+    header {
+      background-color: #f16236;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
+      padding: 20px;
     }
-    .gallery img {
-      max-width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-    footer {
-      background: #222;
-      color: #eee;
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 10px;
       text-align: center;
-      padding: 15px;
+      width: 220px;
+      background-color: #fff;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    h2 {
+      text-align: center;
       margin-top: 30px;
+    }
+
+    iframe {
+      display: block;
+      margin: 20px auto;
+      border: none;
+      width: 90%;
+      max-width: 700px;
+      height: 400px;
+    }
+
+    .payment-section {
+      background-color: #fff3e6;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 2px dashed #ff9900;
+    }
+
+    .payment-section img {
+      width: 240px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .upi-id {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .thanks {
+      font-size: 16px;
+      color: #555;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    JeevMitra - Animal Seva
+    <h1>🐾 JeevMitra - Animal Seva Donation 🐶</h1>
+    <p>Help us serve street dogs and birds with water, food & love</p>
   </header>
 
-  <div class="content">
-    <h2>Our Seva for Street Dogs</h2>
-    <div class="gallery">
-      <img src="dog1.jpg" alt="Dog 1">
-      <img src="dog2.jpg" alt="Dog 2">
-      <img src="dog3.png" alt="Dog 3">
-      <img src="dog4.jpg" alt="Dog 4">
-      <img src="dog5.jpg" alt="Dog 5">
-      <img src="dog6.jpg" alt="Dog 6">
-      <img src="dog8.jpg" alt="Dog 8">
+  <div class="gallery">
+    <div class="card">
+      <img src="dog1.jpg" alt="Clean Water, Happy Tail 🐾">
+      <p>Clean Water, Happy Tail 🐾</p>
+    </div>
+    <div class="card">
+      <img src="dog2.jpg" alt="Play is Healing 💖">
+      <p>Play is Healing 💖</p>
+    </div>
+    <div class="card">
+      <img src="dog3.png" alt="Every Dog Deserves Care 🩺">
+      <p>Every Dog Deserves Care 🩺</p>
+    </div>
+    <div class="card">
+      <img src="dog4.jpg" alt="A Smile Worth Saving 😊">
+      <p>A Smile Worth Saving 😊</p>
+    </div>
+    <div class="card">
+      <img src="dog5.jpg" alt="You Make This Possible 🙌">
+      <p>You Make This Possible 🙌</p>
+    </div>
+    <div class="card">
+      <img src="dog6.jpg" alt="Resting in Peace and Safety 🌙">
+      <p>Resting in Peace and Safety 🌙</p>
+    </div>
+    <div class="card">
+      <img src="dog8.jpg" alt="Even Shadows Need Light 🌟">
+      <p>Even Shadows Need Light 🌟</p>
     </div>
   </div>
 
-  <footer>
-    Donate now and support Animal Seva 🐶🐾 <br>
-    UPI ID: <b>7357897775@ptyes</b>
-  </footer>
+  <h2>🙏 Our Donors</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRjJmM0wLhrmhReNng9bmECGUOwB56xJxwtmPexQUoHD19NH8eH7Oqzq8QHz8cNUysopFjk-0nlh9aN/pubhtml?widget=true&amp;headers=false"></iframe>
 
+  <div class="payment-section">
+    <h2>💰 Donate Now</h2>
+    <img src="your_upi_qr.jpg" alt="Scan UPI to Donate" />
+    <div class="upi-id">📱 UPI ID: <strong>7357897775@ptyes</strong></div>
+    <div class="thanks">Every small help makes a big difference! Thank you! ❤️</div>
+  </div>
 </body>
 </html>
+
+
 
