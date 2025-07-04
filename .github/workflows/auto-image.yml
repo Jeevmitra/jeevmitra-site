@@ -2,7 +2,7 @@ name: Auto Image Upload
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # Every day at 2:00 AM UTC
+    - cron: '0 2 * * *'  # Daily at 2AM UTC
   workflow_dispatch:
 
 jobs:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -20,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install pillow requests
 
       - name: Run auto image bot
@@ -32,4 +34,4 @@ jobs:
           git config --global user.email "bot@jeevmitra.in"
           git add images/ai/
           git diff --cached --quiet || git commit -m "🤖 Auto updated AI image"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
