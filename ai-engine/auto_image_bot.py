@@ -1,97 +1,73 @@
+        
 import os
-from PIL import Image, ImageDraw, ImageFont
-import datetime
 import random
-import subprocess
-import traceback
+import requests
+from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
 
-# 🧠 Emotionally Powerful Hindi Slogans for JeevMitra
-slogans = [
-    "पंछियों के लिए पानी का प्याला रखो 🐦",
-    "एक जानवर की मुस्कान, आपकी मेहरबानी से 😇",
-    "जीवों की सेवा, सच्ची भक्ति 🕊️",
-    "छाया, पानी, और प्यार – यही जीवन है ❤️",
-    "प्रकृति की रक्षा करो, पशु-पक्षी तुम्हारे अपने हैं 🌿",
-    "जो जीवों से प्रेम करता है, वही सच्चा मानव है 🙏",
-    "कुत्तों का साथ, भगवान का आशीर्वाद 🐾",
-    "हर जीवन कीमती है – इंसान हो या जानवर 💧",
-    "पशु सेवा ही परम सेवा है 🚩",
-    "दया का दूसरा नाम – JeevMitra 🤝"
-]
+def download_random_image():
+    try:
+        search_urls = [
+            "https://source.unsplash.com/800x600/?animal",
+            "https://source.unsplash.com/800x600/?dog",
+            "https://source.unsplash.com/800x600/?bird",
+            "https://source.unsplash.com/800x600/?nature,animal",
+            "https://source.unsplash.com/800x600/?wildlife"
+        ]
+        url = random.choice(search_urls)
+        response = requests.get(url, timeout=10)
+        if response.status_code == 200:
+            image = Image.open(BytesIO(response.content)).convert("RGB")
+            filename = "images/ai/auto_" + str(random.randint(1000, 9999)) + ".jpg"
+            image.save(filename)
+            return filename
+        else:
+            print("⚠️ Failed to fetch image.")
+    except Exception as e:
+        print("❌ Error fetching image:", e)
+    return None
 
 def overlay_slogan(image_path, slogan):
     try:
-        img = Image.open(image_path).convert("RGBA")
-        txt_layer = Image.new("RGBA", img.size, (255,255,255,0))
-        draw = ImageDraw.Draw(txt_layer)
+        image = Image.open(image_path).convert("RGB")
+        draw = ImageDraw.Draw(image)
+        font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+        font_size = int(image.width / 18)
 
-        font_size = int(min(img.size)/15)
         try:
-            font = ImageFont.truetype("arial.ttf", font_size)
+            font = ImageFont.truetype(font_path, font_size)
         except:
             font = ImageFont.load_default()
 
         text_width, text_height = draw.textsize(slogan, font=font)
-        x = (img.width - text_width) / 2
-        y = img.height - text_height - 30
+        x = (image.width - text_width) // 2
+        y = image.height - text_height - 40
 
-        # Shadow + Main text
-        draw.text((x+2, y+2), slogan, font=font, fill=(0,0,0,180))
-        draw.text((x, y), slogan, font=font, fill=(255,255,255,255))
+        for dx in range(-2, 3):
+            for dy in range(-2, 3):
+                draw.text((x+dx, y+dy), slogan, font=font, fill="black")
 
-        out = Image.alpha_composite(img, txt_layer).convert("RGB")
-        out.save(image_path)
-        print(f"[✅] Processed: {image_path}")
-        return True
+        draw.text((x, y), slogan, font=font, fill="white")
+        image.save(image_path)
 
     except Exception as e:
-        print(f"[❌] Error processing {image_path}: {e}")
-        traceback.print_exc()
-        return False
-
-def process_all_images():
-    folder = "images/ai"
-    if not os.path.exists(folder):
-        print("[⛔] Folder does not exist:", folder)
-        return False
-
-    files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
-    if not files:
-        print("[ℹ️] No images found in", folder)
-        return False
-
-    any_updated = False
-    for file in files:
-        path = os.path.join(folder, file)
-        slogan = random.choice(slogans)
-        if overlay_slogan(path, slogan):
-            any_updated = True
-
-    return any_updated
-
-def commit_and_push():
-    try:
-        subprocess.run(["git", "config", "--global", "user.name", "JeevMitra-AI"])
-        subprocess.run(["git", "config", "--global", "user.email", "jeevmitra@bot.com"])
-        subprocess.run(["git", "add", "."], check=True)
-        result = subprocess.run(["git", "commit", "-m", f"🔄 Auto Image Update: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"], capture_output=True, text=True)
-
-        if "nothing to commit" in result.stdout.lower():
-            print("[ℹ️] No new changes to commit.")
-        else:
-            subprocess.run(["git", "push"], check=True)
-            print("[🚀] Changes pushed to GitHub.")
-
-    except subprocess.CalledProcessError as e:
-        print("[❌] Git error:", e)
-        traceback.print_exc()
+        print("❌ Error overlaying slogan:", e)
 
 if __name__ == "__main__":
-    try:
-        if process_all_images():
-            commit_and_push()
-        else:
-            print("[⛔] No updates performed.")
-    except Exception as e:
-        print("[❌] Fatal error occurred:", e)
-        traceback.print_exc()
+    slogans = [
+        "प्रेम ही सच्ची सेवा है 🐾",
+        "जीवों से करों प्यार, जीवन होगा उद्धार ❤️",
+        "मूक जीवों की रक्षा करें 🌱",
+        "परिंदों को पानी दें, पुण्य कमाएं 🕊️",
+        "भूखे कुत्तों को भोजन, सबसे बड़ा धर्म 🙏",
+        "जहाँ दया है, वहीं ईश्वर है 🌼"
+    ]
+
+    slogan = random.choice(slogans)
+    downloaded_image = download_random_image()
+
+    if downloaded_image:
+        overlay_slogan(downloaded_image, slogan)
+        print(f"✅ Done: {downloaded_image}")
+    else:
+        print("⚠️ No image processed.")
