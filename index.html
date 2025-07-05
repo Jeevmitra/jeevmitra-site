@@ -3,160 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JeevMitra - जीव सेवा अभियान</title>
+  <title>JeevMitra - एक जीवनदायी सेवा</title>
+  <link rel="icon" href="images/qr.png">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: url('images/dog8.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #222;
-      margin: 0;
-      padding: 0;
+      color: #fff;
+      overflow-x: hidden;
     }
     header {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
       text-align: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-    }
-    .section {
-      background: rgba(255, 255, 255, 0.85);
-      margin: 20px;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px #aaa;
-    }
-    .scroll-box {
-      height: 140px;
-      overflow: hidden;
       position: relative;
     }
-    .scroll-content {
-      display: flex;
-      flex-direction: column;
-      animation: scrollSlogans 18s linear infinite;
+    h1 {
+      font-size: 2.8rem;
+      margin: 0;
     }
-    @keyframes scrollSlogans {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-100%); }
+
+    /* ✨ चमकदार Logo */
+    #logo {
+      width: 80px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      animation: shine 3s infinite;
     }
-    .birds-images img,
-    .donors img,
-    .story-img {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
+    @keyframes shine {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(2); }
+      100% { filter: brightness(1); }
     }
-    iframe {
-      width: 100%;
-      border: none;
+
+    /* 🌹 गुलाब वर्षा */
+    .rose {
+      position: fixed;
+      top: -50px;
+      animation: fall 10s linear infinite;
     }
-    a {
-      color: #006400;
-      font-weight: bold;
-      text-decoration: none;
+    @keyframes fall {
+      0% { transform: translateY(-100px); }
+      100% { transform: translateY(110vh); }
+    }
+
+    /* 🎆 पटाखे (canvas) */
+    canvas.fireworks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🙏 JeevMitra – जीव सेवा अभियान 🙏</h1>
-  <audio controls autoplay loop>
-    <source src="music/background.mp3" type="audio/mpeg">
-    आपका ब्राउज़र म्यूज़िक प्ले नहीं कर पा रहा।
-  </audio>
+<!-- ✨ Logo -->
+<img src="images/qr.png" alt="Logo" id="logo">
+
+<!-- 🌹 गुलाब वर्षा -->
+<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 10%;" />
+<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 30%;" />
+<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 50%;" />
+<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 70%;" />
+<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 90%;" />
+
+<!-- 🎆 पटाखे -->
+<canvas class="fireworks" id="fireworksCanvas"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2"></script>
+<script>
+  const container = document.getElementById("fireworksCanvas");
+  const fireworks = new Fireworks.default(container, {
+    rocketsPoint: 50,
+    speed: 2,
+    acceleration: 1.02,
+    friction: 0.97,
+    gravity: 1.5,
+    particles: 50,
+    explosion: 5
+  });
+  fireworks.start();
+</script><header>
+  <h1>🐾 JeevMitra - एक जीवनदायी सेवा 🐾</h1>
+  <p>सड़क के जानवरों और पक्षियों की सेवा के लिए समर्पित</p>
 </header>
 
-<div class="section">
-  <h2>🧠 Daily AI-Generated Slogan</h2>
-  <p>🐾 "दया का मतलब सिर्फ़ इंसानों तक सीमित नहीं होना चाहिए।"</p>
+<section class="slogan-box">
+  <h2>🌟 Aaj Ka Sandesh 🌟</h2>
+  <p>“जहाँ दया है, वहाँ ईश्वर है – आइए एक जीव का जीवन बचाएं।”</p>
+</section>
+
+<div class="scrolling-slogans">
+  <p>जीवों की सेवा ही सच्चा धर्म है • हर जीवन कीमती है • एक बूँद पानी, एक मुट्ठी दाना – यही है असली सेवा</p>
 </div>
 
-<div class="section">
-  <h2>💬 भावुक स्लोगन – Scroll होते हुए</h2>
-  <div class="scroll-box">
-    <div class="scroll-content">
-      <p>🐾 "प्राणी सेवा ही परम धर्म है"</p>
-      <p>🕊️ "जो बोल नहीं सकते, उनके लिए बोलो"</p>
-      <p>🐕 "कुत्ते भूखे न रहें – इंसान बनो"</p>
-      <p>🐦 "एक परिंदा बोले: 'पानी दो ना भाई'"</p>
-      <p>🌿 "जहां दया है, वहां परमात्मा है"</p>
-      <p>🐄 "गाय माँ का आँसू – धरती का श्राप है"</p>
-      <p>🐶 "हर जीवन मायने रखता है – छोटा हो या बड़ा"</p>
-      <p>🌞 "गर्मी में एक कटोरी पानी – लाखों का पुण्य"</p>
-      <p>🕉️ "सेवा से बड़ा कोई धर्म नहीं"</p>
-      <p>👣 "जहां पग रुकते हैं, वहां छांव बना दो – किसी जानवर के लिए"</p>
-    </div>
+<section class="photo-grid">
+
+  <!-- 🐶 Dog Images -->
+  <div class="photo-card">
+    <img src="images/dog1.jpg" alt="Dog1">
+    <p><strong>संगत:</strong> भूखा पेट भगवान की आवाज़ नहीं सुनता</p>
   </div>
-</div>
-<div class="section">
-  <h2>📚 सच्ची कहानियाँ – प्रेरणा देने वाली जीव सेवा</h2>
 
-  <h3>1. अमृता देवी बिश्नोई (राजस्थान – 1730)</h3>
-  <p>“सर कटे तो चलेगा, लेकिन पेड़ न कटे।” खेजड़ली गाँव में अमृता देवी और 363 बिश्नोई भाइयों ने पेड़ों को बचाने के लिए अपने प्राण दिए।</p>
-
-  <h3>2. मोती – मंदिर वाला कुत्ता (जयपुर)</h3>
-  <p>जयपुर के मंदिर में आने वाला मोती हर रोज़ आरती में भाग लेता था। उसकी मृत्यु पर पूरा मंदिर रोया, और वैदिक विधि से अंतिम संस्कार किया गया।</p>
-  <img src="dog5.jpg" alt="मोती मंदिर का कुत्ता" class="story-img">
-
-  <h3>3. हुसैन साहब – कबूतरों के बाबा (दिल्ली)</h3>
-  <p>सुबह 4 बजे उठकर 1000+ कबूतरों को रोज़ दाना-पानी देना, जीवन का एकमात्र उद्देश्य।</p>
-
-  <h3>4. पिंकी दीदी – डॉग मदर (मुंबई)</h3>
-  <p>हर महीने की सैलरी का बड़ा हिस्सा 40 से ज्यादा स्ट्रीट डॉग्स को खाना, गर्मियों में पानी और प्लास्टिक के छज्जे लगाने में खर्च करती थीं।</p>
-
-  <h3>5. गुड्डू और सूरज – तोते की दोस्ती (अजमेर)</h3>
-  <p>12 साल का सूरज एक घायल तोते को बचाता है, और वो तोता रोज़ उसके कंधे पर बैठकर स्कूल तक जाता है।</p>
-
-  <h3>6. गौशाला बाबा (बीकानेर)</h3>
-  <p>300 से ज्यादा गायों की सेवा करने वाले संत, जिनका कहना था – “गाय का आँसू भगवान का आदेश है।”</p>
-  <img src="cowF.jpg" alt="गौशाला बाबा की गाय" class="story-img">
-</div>
-
-<div class="section">
-  <h2>🦜 Birds Section + Emotional Slogans</h2>
-  <div class="birds-images">
-    <img src="birdA.jpg" alt="Bird with water bowl">
-    <p>“गर्मी में दाना-पानी का संकल्प – पक्षियों की रक्षा हमारा धर्म।”</p>
-    <img src="birdC.jpg" alt="Bird perched">
-    <p>“जब वो बोल नहीं सकते, तब हमें बोलना होगा।”</p>
+  <div class="photo-card">
+    <img src="images/dog2.jpg" alt="Dog2">
+    <p><strong>स्नेह-छाया:</strong> जिनका कोई नहीं, उनके लिए हम हैं</p>
   </div>
-</div>
 
-<div class="section">
-  <h2>📊 Volunteer / Donors Leaderboard</h2>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJWYXXfqCZx-auYdFN4vt5gnPWlYTGktcSLeD9xgtNAaZ_eP-CH_5zHO458ZueH1G0PC9cECQs2ebS/pubhtml?widget=true&headers=false" height="400"></iframe>
-</div>
-
-<div class="section">
-  <h2>📝 Feedback + संकल्प</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform?embedded=true" height="500"></iframe>
-</div>
-
-<div class="section">
-  <h2>📺 Live YouTube Feed</h2>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" allowfullscreen></iframe>
-</div>
-
-<div class="section">
-  <h2>📩 WhatsApp Broadcast Invite</h2>
-  <a href="https://wa.me/917357897775?text=JeevMitra%20Broadcast%20Join%20Request" target="_blank">
-    👉 हमारे WhatsApp Broadcast से जुड़ें
-  </a>
-</div>
-
-<div class="section">
-  <h2>🌟 Donors Showcase (Auto)</h2>
-  <div class="donors">
-    <img src="images/donors/donor1.jpg" alt="Donor 1">
-    <img src="images/donors/donor2.jpg" alt="Donor 2">
-    <p>🙏 आप सभी का सहयोग अमूल्य है 🙏</p>
+  <div class="photo-card">
+    <img src="images/dog3.png" alt="Dog3">
+    <p><strong>निर्मल जल:</strong> गर्मी में परिंदों को भी चाहिए प्यार</p>
   </div>
-</div>
 
-<footer style="text-align:center; margin-top: 30px;">
-  <p>Website by: Naresh Bithu & ChatGPT 🤝 | © 2025 JeevMitra</p>
+  <div class="photo-card">
+    <img src="images/dog4.jpg" alt="Dog4">
+    <p><strong>सच्चा भक्त:</strong> सेवा बिना भक्ति अधूरी है</p>
+  </div>
+
+  <!-- 🐦 Bird Images -->
+  <div class="photo-card">
+    <img src="images/birdA.jpg" alt="BirdA">
+    <p><strong>पंखों की पुकार:</strong> गर्मी में भी हमें याद रखो</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="images/birdC.jpg" alt="BirdC">
+    <p><strong>गगन साथी:</strong> हर उड़ान में तुम्हारा आशीर्वाद चाहिए</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="images/birdD.png" alt="BirdD">
+    <p><strong>जीवन बूँद:</strong> हर परिंदा प्यासा है</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="images/birdE.png" alt="BirdE">
+    <p><strong>छाँव की आस:</strong> गरम धूप में एक कटोरा पानी भी वरदान है</p>
+  </div>
+
+  <!-- 🙏 Donor Images -->
+  <div class="photo-card">
+    <img src="images/donor1.jpg" alt="Donor1">
+    <p><strong>डोनर: Geeta Didi</strong><br>हर रविवार 25 बेजुबानों को खाना</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="images/donor2.jpg" alt="Donor2">
+    <p><strong>डोनर: Ramesh Bhai</strong><br>रोज़ 10 बचे खाने के पैकेट बाटते हैं</p>
+  </div>
+
+</section><!-- 📊 Google Sheet Leaderboard -->
+<section class="slogan-box">
+  <h2>📊 डोनर लीडरबोर्ड</h2>
+  <p>सभी जीवमित्र जिन्होंने मदद की है, उनका लाइव डेटा:</p>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS9wEDIbNu8LAgUkln8yDwGkK6K2bpmJ_x-YOUR-SHEET-ID/pubhtml?widget=true&amp;headers=false"></iframe>
+</section>
+
+<!-- 📩 Feedback + Gmail -->
+<section class="slogan-box">
+  <h2>📩 अपनी राय या अनुभव साझा करें</h2>
+  <p>हमें लिखें: <strong>nareshdan768@gmail.com</strong></p>
+</section>
+
+<!-- 📺 YouTube Embed -->
+<section class="slogan-box">
+  <h2>📺 हमारी प्रेरणादायक वीडियो देखें</h2>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<!-- 📱 WhatsApp Broadcast Link -->
+<section class="slogan-box">
+  <h2>📱 जुड़े हमारे WhatsApp Broadcast से</h2>
+  <p><a href="https://wa.me/917357897775?text=मैं%20JeevMitra%20से%20जुड़ना%20चाहता%20हूं" target="_blank" style="color: #00ffcc;">यहाँ क्लिक करें</a> ताकि हम आपको रोज़ाना अपडेट भेज सकें।</p>
+</section>
+
+<!-- 📝 Footer -->
+<footer>
+  © 2025 JeevMitra | Created with ❤️ by <strong>Naresh Bithu & ChatGPT</strong>
 </footer>
 
 </body>
-</html>
+</html><!-- 🔄 AI Image Carousel -->
+<section class="slogan-box">
+  <h2>🌅 सेवा प्रेरक छवियाँ</h2>
+  <div id="carousel">
+    <img id="carousel-img" src="images/ai1.jpg" style="width:100%; border-radius: 10px;" />
+    <p id="carousel-caption">"हर कुत्ते की आँखों में भगवान झांकता है"</p>
+  </div>
+</section>
+
+<script>
+  const images = [
+    {src: "images/ai1.jpg", text: "हर कुत्ते की आँखों में भगवान झांकता है"},
+    {src: "images/ai2.jpg", text: "परिंदों को दाना देना, पुण्य का काम है"},
+    {src: "images/ai3.jpg", text: "दया के बिना धर्म अधूरा है"}
+  ];
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("carousel-img").src = images[index].src;
+    document.getElementById("carousel-caption").innerText = images[index].text;
+  }, 7000);
+</script>
+
+<!-- 🧠 AI Seva Suggestion -->
+<section class="slogan-box">
+  <h2>💡 आज की सेवा सुझाव</h2>
+  <p id="suggestion"></p>
+</section>
+
+<script>
+  const suggestions = [
+    "आज किसी कुत्ते के लिए पानी रखिए",
+    "अपने घर के बाहर एक परिंडा लटकाइए",
+    "किसी घायल जानवर को पास के vet तक पहुँचाइए",
+    "बच्चों को जानवरों के प्रति दया सिखाइए"
+  ];
+  document.getElementById("suggestion").innerText =
+    suggestions[Math.floor(Math.random() * suggestions.length)];
+</script>
+
+<!-- 🧘 Calm Corner -->
+<section class="slogan-box">
+  <h2>🧘 शांति और ध्यान का कोना</h2>
+  <audio controls autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/10/24/audio_c7f749b1e1.mp3" type="audio/mpeg">
+    आपका ब्राउज़र ऑडियो नहीं चला सकता।
+  </audio>
+  <p style="font-style: italic; margin-top: 10px;">"मन शांत हो, तो सेवा में आनंद आता है"</p>
+</section>
