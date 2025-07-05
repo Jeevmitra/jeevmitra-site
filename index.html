@@ -1,238 +1,181 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JeevMitra - एक जीवनदायी सेवा</title>
-  <link rel="icon" href="images/qr.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JeevMitra – जानवरों की सेवा में</title>
+  <link rel="icon" href="qr.png">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('images/dog8.jpg') no-repeat center center fixed;
+      background: url('dog8.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      overflow-x: hidden;
+      text-shadow: 1px 1px 4px #000;
     }
     header {
-      background: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       text-align: center;
-      position: relative;
     }
-    h1 {
-      font-size: 2.8rem;
+    header h1 {
+      font-size: 36px;
       margin: 0;
     }
-
-    /* ✨ चमकदार Logo */
-    #logo {
-      width: 80px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      animation: shine 3s infinite;
+    header p {
+      font-size: 18px;
+      margin-top: 5px;
     }
-    @keyframes shine {
-      0% { filter: brightness(1); }
-      50% { filter: brightness(2); }
-      100% { filter: brightness(1); }
-    }
-
-    /* 🌹 गुलाब वर्षा */
-    .rose {
-      position: fixed;
-      top: -50px;
-      animation: fall 10s linear infinite;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-100px); }
-      100% { transform: translateY(110vh); }
-    }
-
-    /* 🎆 पटाखे (canvas) */
-    canvas.fireworks {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 999;
+    .cover-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<!-- ✨ Logo -->
-<img src="images/qr.png" alt="Logo" id="logo">
+  <header>
+    <h1>🐾 JeevMitra</h1>
+    <p>“एक बेज़ुबान की मदद – सबसे बड़ी सेवा”</p>
+  </header>
 
-<!-- 🌹 गुलाब वर्षा -->
-<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 10%;" />
-<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 30%;" />
-<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 50%;" />
-<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 70%;" />
-<img src="https://i.ibb.co/9YkN8Dx/rose.png" class="rose" style="left: 90%;" />
-
-<!-- 🎆 पटाखे -->
-<canvas class="fireworks" id="fireworksCanvas"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2"></script>
-<script>
-  const container = document.getElementById("fireworksCanvas");
-  const fireworks = new Fireworks.default(container, {
-    rocketsPoint: 50,
-    speed: 2,
-    acceleration: 1.02,
-    friction: 0.97,
-    gravity: 1.5,
-    particles: 50,
-    explosion: 5
-  });
-  fireworks.start();
-</script><header>
-  <h1>🐾 JeevMitra - एक जीवनदायी सेवा 🐾</h1>
-  <p>सड़क के जानवरों और पक्षियों की सेवा के लिए समर्पित</p>
-</header>
-
-<section class="slogan-box">
-  <h2>🌟 Aaj Ka Sandesh 🌟</h2>
-  <p>“जहाँ दया है, वहाँ ईश्वर है – आइए एक जीव का जीवन बचाएं।”</p>
+  <img src="dog5.jpg" alt="Cover Animal" class="cover-image">
+  <!-- Cover Section -->
+<section style="background-image: url('dog5.jpg'); background-size: cover; background-position: center; color: white; padding: 80px 20px; text-align: center;">
+  <h1 style="font-size: 48px; font-weight: bold; text-shadow: 2px 2px 4px #000;">🐾 जीवमित्र सेवा</h1>
+  <p style="font-size: 24px; text-shadow: 1px 1px 2px #000;">"हर जीव के जीवन का सम्मान करें"</p>
 </section>
 
-<div class="scrolling-slogans">
-  <p>जीवों की सेवा ही सच्चा धर्म है • हर जीवन कीमती है • एक बूँद पानी, एक मुट्ठी दाना – यही है असली सेवा</p>
-</div>
-
-<section class="photo-grid">
-
-  <!-- 🐶 Dog Images -->
-  <div class="photo-card">
-    <img src="images/dog1.jpg" alt="Dog1">
-    <p><strong>संगत:</strong> भूखा पेट भगवान की आवाज़ नहीं सुनता</p>
+<!-- Welcome Section -->
+<section style="padding: 40px; text-align: center;">
+  <h2>🙏 आपका स्वागत है</h2>
+  <p>हमारा उद्देश्य सड़कों पर रहने वाले बेसहारा जानवरों की सेवा करना है। आप भी हमारे इस पुनीत कार्य में सहभागी बन सकते हैं।</p>
+</section>
+<!-- Gallery with Slogans -->
+<section style="padding: 40px; background-color: #f9f9f9;">
+  <h2 style="text-align: center;">🐶 सेवा में लगे हमारे साथी</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+    
+    <div><img src="dog1.jpg" alt="Dog 1" width="250"><p>भूख से बिलखते को रोटी दे दो 🫓</p></div>
+    <div><img src="dog2.jpg" alt="Dog 2" width="250"><p>ये वफादार हैं, सिर्फ प्यार माँगते हैं ❤️</p></div>
+    <div><img src="dog3.png" alt="Dog 3" width="250"><p>इनकी आंखों में दया की पुकार है 👁️</p></div>
+    <div><img src="dog4.jpg" alt="Dog 4" width="250"><p>सेवा ही सबसे बड़ा धर्म है 🕉️</p></div>
+    <div><img src="dog6.jpg" alt="Dog 6" width="250"><p>मत डराओ, दुलारो 🐕</p></div>
+    <div><img src="dog7.jpg" alt="Dog 7" width="250"><p>गाय नहीं माता है, रक्षा करना नाता है 🐄</p></div>
+    <div><img src="dog8.jpg" alt="Dog 8" width="250"><p>एक रोटी, एक जीवन बचा सकती है 🍞</p></div>
   </div>
+</section>
+<!-- Birds and Cows -->
+<section style="padding: 40px;">
+  <h2 style="text-align: center;">🕊️ पक्षियों और गायों के लिए भी सेवा</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-  <div class="photo-card">
-    <img src="images/dog2.jpg" alt="Dog2">
-    <p><strong>स्नेह-छाया:</strong> जिनका कोई नहीं, उनके लिए हम हैं</p>
+    <div><img src="birdA.jpg" alt="Bird A" width="200"><p>दाना-पानी पक्षियों का हक है 🐦</p></div>
+    <div><img src="birdB.jpg" alt="Bird B" width="200"><p>उन्हें उड़ने दो, जाल मत बिछाओ 🕊️</p></div>
+    <div><img src="birdC.jpg" alt="Bird C" width="200"><p>गर्मी में पानी की एक बूँद जीवन दे सकती है 💧</p></div>
+    <div><img src="cowF.jpg" alt="Cow F" width="200"><p>गाय सिर्फ दूध नहीं, भावना है ❤️</p></div>
+    <div><img src="cowG.png" alt="Cow G" width="200"><p>गौसेवा ही गोविंद सेवा है 🐮</p></div>
+    <div><img src="cowH.jpg" alt="Cow H" width="200"><p>जहाँ गौ माता की सेवा होती है, वहाँ सुख आता है 🌾</p></div>
+
   </div>
+</section>
+<!-- Emotional Stories Section -->
+<section style="padding: 40px; background-color: #fff8e1;">
+  <h2 style="text-align: center;">💓 सच्ची कहानियाँ जो दिल छू जाएँ</h2>
+  
+  <div style="max-width: 800px; margin: auto;">
+    <h4>🐶 टॉमी की कहानी:</h4>
+    <p>टॉमी एक सड़क पर घायल पड़ा था। जीवमित्र सेवकों ने उसे तुरंत उपचार दिया और अब वह स्वस्थ होकर हर किसी का स्वागत करता है।</p>
 
-  <div class="photo-card">
-    <img src="images/dog3.png" alt="Dog3">
-    <p><strong>निर्मल जल:</strong> गर्मी में परिंदों को भी चाहिए प्यार</p>
+    <h4>🐦 चिऊ की कहानी:</h4>
+    <p>गर्मी में प्यास से परेशान थी, पानी के कटोरे ने उसे नया जीवन दिया।</p>
+
+    <h4>🐄 गौरी माँ की कहानी:</h4>
+    <p>कई दिनों से भूखी थी, हमने उसे चारा दिया और अब वह हर दिन हमारे दरवाज़े पर आती है - आशीर्वाद देने के लिए।</p>
+
+    <h4>👧 सीमा दीदी की सेवा:</h4>
+    <p>हर सुबह 10 रोटियाँ लेकर निकलती हैं — सिर्फ इन मासूम प्राणियों को खिलाने के लिए।</p>
+
+    <h4>🧒 मोहन की प्रेरणा:</h4>
+    <p>12 साल का बच्चा, अपनी पॉकेट मनी से biscuits खरीद कर, हर रविवार कुत्तों को खिलाता है।</p>
   </div>
-
-  <div class="photo-card">
-    <img src="images/dog4.jpg" alt="Dog4">
-    <p><strong>सच्चा भक्त:</strong> सेवा बिना भक्ति अधूरी है</p>
-  </div>
-
-  <!-- 🐦 Bird Images -->
-  <div class="photo-card">
-    <img src="images/birdA.jpg" alt="BirdA">
-    <p><strong>पंखों की पुकार:</strong> गर्मी में भी हमें याद रखो</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="images/birdC.jpg" alt="BirdC">
-    <p><strong>गगन साथी:</strong> हर उड़ान में तुम्हारा आशीर्वाद चाहिए</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="images/birdD.png" alt="BirdD">
-    <p><strong>जीवन बूँद:</strong> हर परिंदा प्यासा है</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="images/birdE.png" alt="BirdE">
-    <p><strong>छाँव की आस:</strong> गरम धूप में एक कटोरा पानी भी वरदान है</p>
-  </div>
-
-  <!-- 🙏 Donor Images -->
-  <div class="photo-card">
-    <img src="images/donor1.jpg" alt="Donor1">
-    <p><strong>डोनर: Geeta Didi</strong><br>हर रविवार 25 बेजुबानों को खाना</p>
-  </div>
-
-  <div class="photo-card">
-    <img src="images/donor2.jpg" alt="Donor2">
-    <p><strong>डोनर: Ramesh Bhai</strong><br>रोज़ 10 बचे खाने के पैकेट बाटते हैं</p>
-  </div>
-
-</section><!-- 📊 Google Sheet Leaderboard -->
-<section class="slogan-box">
-  <h2>📊 डोनर लीडरबोर्ड</h2>
-  <p>सभी जीवमित्र जिन्होंने मदद की है, उनका लाइव डेटा:</p>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS9wEDIbNu8LAgUkln8yDwGkK6K2bpmJ_x-YOUR-SHEET-ID/pubhtml?widget=true&amp;headers=false"></iframe>
 </section>
 
-<!-- 📩 Feedback + Gmail -->
-<section class="slogan-box">
-  <h2>📩 अपनी राय या अनुभव साझा करें</h2>
-  <p>हमें लिखें: <strong>nareshdan768@gmail.com</strong></p>
+<!-- Scrolling Slogans Section -->
+<section style="padding: 20px; background-color: #e3f2fd; margin-top: 20px;">
+  <h2 style="text-align: center;">🌟 आज के प्रेरणादायक नारे</h2>
+  <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 18px; color: #1a237e;">
+    सेवा से बड़ा कोई धर्म नहीं है 🙏 &nbsp; | &nbsp;
+    एक रोटी, एक जीवन 🍞 &nbsp; | &nbsp;
+    वफादार को ठुकराना पाप है 🐕 &nbsp; | &nbsp;
+    पक्षियों के लिए एक कटोरी पानी रखें 💧 &nbsp; | &nbsp;
+    गौ सेवा = राष्ट्र सेवा 🇮🇳 &nbsp; | &nbsp;
+    उन्हें आवाज़ नहीं मिलती, हमारी बनो 🎤 &nbsp; | &nbsp;
+    जीवों से प्रेम करो, प्रभु मिलेंगे ❤️
+  </marquee>
 </section>
+<!-- Donation Section -->
+<section style="background-color: #fff3e0; padding: 40px;">
+  <h2 style="text-align: center;">🙏 दान करें – एक जीवन बचाएँ</h2>
+  <p style="text-align: center; max-width: 800px; margin: auto; font-size: 18px;">
+    आपका छोटा सा सहयोग भी किसी की पूरी दुनिया बदल सकता है। जीवमित्र का हर एक दान सीधे जानवरों की सेवा, दवा, भोजन और देखरेख में जाता है।
+  </p>
 
-<!-- 📺 YouTube Embed -->
-<section class="slogan-box">
-  <h2>📺 हमारी प्रेरणादायक वीडियो देखें</h2>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; align-items: center; margin-top: 30px;">
+    <!-- QR Code Image -->
+    <img src="qr.png" alt="UPI QR Code" style="width: 200px; height: 200px; margin: 20px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.2);">
+
+    <!-- UPI Details -->
+    <div style="margin: 20px; text-align: center;">
+      <p style="font-size: 20px;"><strong>📱 UPI ID:</strong></p>
+      <p style="font-size: 24px; font-weight: bold; color: #d84315;">7357897775-2@ybl</p>
+      <p>Scan QR या ऊपर दी गई UPI ID से दान करें।</p>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 30px; font-size: 16px;">
+    💡 कृपया दान के बाद <b>नाम + राशि</b> हमें बताएं ताकि हम उसे <i>Donors Wall</i> पर जोड़ सकें।
+  </p>
 </section>
+<!-- Feedback Section -->
+<section style="background-color: #e3f2fd; padding: 40px;">
+  <h2 style="text-align: center;">📝 Feedback + संकल्प</h2>
+  <p style="text-align: center; max-width: 800px; margin: auto; font-size: 18px;">
+    आपकी राय हमारे लिए अनमोल है। कृपया अपने सुझाव, अनुभव या संकल्प हमें भेजें – हम उन्हें अगली सेवा में जरूर शामिल करेंगे।
+  </p>
 
-<!-- 📱 WhatsApp Broadcast Link -->
-<section class="slogan-box">
-  <h2>📱 जुड़े हमारे WhatsApp Broadcast से</h2>
-  <p><a href="https://wa.me/917357897775?text=मैं%20JeevMitra%20से%20जुड़ना%20चाहता%20हूं" target="_blank" style="color: #00ffcc;">यहाँ क्लिक करें</a> ताकि हम आपको रोज़ाना अपडेट भेज सकें।</p>
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <a href="mailto:nareshdan768@gmail.com?subject=JeevMitra%20Feedback&body=मैं%20अपना%20संकल्प%20या%20सुझाव%20यहां%20लिख%20रहा%20हूं%3A%0A%0A" 
+       style="background-color: #1e88e5; color: white; padding: 14px 28px; font-size: 18px; text-decoration: none; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.2);">
+       ✉️ अपना फीडबैक ईमेल करें
+    </a>
+  </div>
+
+  <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #333;">
+    (ईमेल खुलने में समय लगे तो कृपया Gmail App से भेजें: <b>nareshdan768@gmail.com</b>)
+  </p>
 </section>
+<!-- Footer Section -->
+<footer style="background-color: #212121; color: white; padding: 30px 10px; text-align: center; margin-top: 50px;">
+  
+  <p style="font-size: 16px; margin-bottom: 10px;">
+    📍 <strong>सम्पर्क:</strong> nareshdan768@gmail.com
+  </p>
 
-<!-- 📝 Footer -->
-<footer>
-  © 2025 JeevMitra | Created with ❤️ by <strong>Naresh Bithu & ChatGPT</strong>
+  <p style="font-size: 16px; margin-bottom: 10px;">
+    📢 <strong>YouTube Channel:</strong> JeevMitra Vaani | <strong>Instagram:</strong> @kakokeve
+  </p>
+
+  <hr style="border-color: #555; margin: 20px auto; width: 80%;">
+
+  <p style="font-size: 14px; color: #ccc;">
+    इस वेबसाइट को <strong>Naresh Bithu</strong> और <strong>ChatGPT AI</strong> द्वारा मिलकर बनाया गया है 💛  
+  </p>
+  <p style="font-size: 12px; color: #999;">© 2025 JeevMitra | सभी अधिकार सुरक्षित</p>
 </footer>
 
 </body>
-</html><!-- 🔄 AI Image Carousel -->
-<section class="slogan-box">
-  <h2>🌅 सेवा प्रेरक छवियाँ</h2>
-  <div id="carousel">
-    <img id="carousel-img" src="images/ai1.jpg" style="width:100%; border-radius: 10px;" />
-    <p id="carousel-caption">"हर कुत्ते की आँखों में भगवान झांकता है"</p>
-  </div>
-</section>
-
-<script>
-  const images = [
-    {src: "images/ai1.jpg", text: "हर कुत्ते की आँखों में भगवान झांकता है"},
-    {src: "images/ai2.jpg", text: "परिंदों को दाना देना, पुण्य का काम है"},
-    {src: "images/ai3.jpg", text: "दया के बिना धर्म अधूरा है"}
-  ];
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    document.getElementById("carousel-img").src = images[index].src;
-    document.getElementById("carousel-caption").innerText = images[index].text;
-  }, 7000);
-</script>
-
-<!-- 🧠 AI Seva Suggestion -->
-<section class="slogan-box">
-  <h2>💡 आज की सेवा सुझाव</h2>
-  <p id="suggestion"></p>
-</section>
-
-<script>
-  const suggestions = [
-    "आज किसी कुत्ते के लिए पानी रखिए",
-    "अपने घर के बाहर एक परिंडा लटकाइए",
-    "किसी घायल जानवर को पास के vet तक पहुँचाइए",
-    "बच्चों को जानवरों के प्रति दया सिखाइए"
-  ];
-  document.getElementById("suggestion").innerText =
-    suggestions[Math.floor(Math.random() * suggestions.length)];
-</script>
-
-<!-- 🧘 Calm Corner -->
-<section class="slogan-box">
-  <h2>🧘 शांति और ध्यान का कोना</h2>
-  <audio controls autoplay loop>
-    <source src="https://cdn.pixabay.com/audio/2022/10/24/audio_c7f749b1e1.mp3" type="audio/mpeg">
-    आपका ब्राउज़र ऑडियो नहीं चला सकता।
-  </audio>
-  <p style="font-style: italic; margin-top: 10px;">"मन शांत हो, तो सेवा में आनंद आता है"</p>
-</section>
+</html>
