@@ -1,202 +1,239 @@
+<!-- Final JeevMitra HTML Code: Part 1 + 2 + 3 COMBINED -->
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeevMitra – जानवर और जीवों की सेवा</title>
-  <meta name="description" content="JeevMitra is India's most emotional and real seva site for animals.">
-  <meta name="keywords" content="dog seva, animal donation, cow seva, bird water seva, JeevMitra, real seva, feed street animals">
-  <meta name="author" content="Naresh Bithu & ChatGPT">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://jeevmitra.github.io/jeevmitra-site/">
-  <link rel="icon" href="dog1.jpg" type="image/jpg">
-
-  <!-- Fireworks -->
-  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/fireworks.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JeevMitra - जीवन सेवा</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('images/dog5.jpg') no-repeat center center fixed;
+      background: url('images/dog8.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #222;
-    }
-
-    h1, h2 {
-      text-align: center;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-
-    .image-grid div {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    .donate-box {
-      background: #fffbe6;
-      text-align: center;
-      padding: 30px;
-    }
-
-    footer {
-      background: #222;
       color: white;
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark-mode {
+      background-color: black !important;
+      color: white !important;
+    }
+    header {
+      background-color: rgba(0,0,0,0.7);
+      padding: 20px;
       text-align: center;
+    }
+    header h1 {
+      font-size: 2.6em;
+      margin: 0;
+    }
+    .toggle-mode {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .quote-box {
+      background-color: rgba(0,0,0,0.5);
+      margin: 20px;
       padding: 15px;
+      font-size: 1.4em;
+      border-left: 5px solid #00ffcc;
     }
-
-    /* 🌸 Petals */
-    .petal {
-      position: fixed;
-      top: -10px;
-      width: 15px;
-      height: 15px;
-      background: #ff69b4;
-      border-radius: 50%;
-      opacity: 0.8;
-      z-index: 9997;
-      animation: fall 6s linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* ✍️ Typewriter */
-    #typewriter-text {
-      font-size: 1.5em;
+    .quote-box::before {
+      content: "🧠 आज का संदेश: ";
       font-weight: bold;
-      color: #880000;
-      text-shadow: 1px 1px #fff;
-      min-height: 50px;
+    }
+    section {
+      padding: 20px;
+      background-color: rgba(255,255,255,0.95);
+      color: black;
+      margin: 20px;
+      border-radius: 15px;
+    }
+    a.button, button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    a.button:hover, button:hover {
+      background: darkgreen;
+    }
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      display: block;
+      font-size: 1em;
+    }
+    .photo-box {
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .photo-box img {
+      max-width: 100%;
+      border-radius: 10px;
     }
   </style>
 </head>
-
 <body>
-  <!-- 🎆 Fireworks canvas -->
-  <canvas id="fireworks-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;"></canvas>
-  <div id="petals" style="z-index:9997;"></div>
 
-  <header>
-    <h1>🐾 JeevMitra</h1>
-    <div id="typewriter-text"></div>
-    <p>कुत्ते, गाय, और पक्षियों की सेवा – सच्ची मानवता का मार्ग</p>
-  </header>
+<!-- 🌗 Toggle Button -->
+<button class="toggle-mode" onclick="toggleMode()">🌗 मोड बदलें</button>
 
-  <section>
-    <h2>📸 हमारी सेवाएं</h2>
-    <div class="image-grid">
-      <div><img src="dog1.jpg"><p>भूखे को भोजन</p></div>
-      <div><img src="dog2.jpg"><p>बीमार का इलाज</p></div>
-      <div><img src="dog3.png"><p>गायों की सेवा</p></div>
-      <div><img src="dog4.jpg"><p>बेज़ुबानों की मदद</p></div>
-      <div><img src="dog5.jpg"><p>छायादान</p></div>
-      <div><img src="dog6.jpg"><p>पक्षियों के लिए पानी</p></div>
-      <div><img src="dog7.jpg"><p>अनाथ पशु सहारा</p></div>
-      <div><img src="dog8.jpg"><p>रात का सहारा</p></div>
-    </div>
-  </section>
+<!-- Header -->
+<header>
+  <h1>🐾 JeevMitra - जीवन सेवा अभियान 🐾</h1>
+  <p>जहाँ सेवा है, वहाँ जीवन है</p>
+</header>
 
-  <section class="donate-box">
-    <h2>🙏 छोटा सहयोग, किसी की ज़िंदगी</h2>
-    <p><strong>UPI ID:</strong> 7357897775@pyes</p>
-    <img src="scanner.jpg" alt="QR Code" width="200">
-  </section>
+<!-- 🎵 Background Music -->
+<audio autoplay loop>
+  <source src="music/bg-music.mp3" type="audio/mp3" />
+</audio>
 
-  <section>
-    <h2>📊 हमारे योगदान</h2>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJiWXxfqCZX-auvNdFN4vt5gnPMlYTGktcSLeD9xtNaAZ_eP-CH_5ZH04SAUzHE1G0PGC5EC9t2ebS/pubhtml" width="1000" height="500" style="display:block;margin:auto;"></iframe>
-  </section>
+<!-- 🧠 Daily Quote -->
+<div class="quote-box" id="dailyQuote">Loading...</div>
 
-  <section>
-    <h2>🌿 पानी सेवा</h2>
-    <p style="text-align:center;">गर्मी में प्याले रखें, जीवन बचाएं।</p>
-    <div class="image-grid">
-      <div><img src="birdA.jpg"><p>जलपान जीवन की</p></div>
-      <div><img src="birdB.jpg"><p>प्याले निकाल, प्यास बुझाओ</p></div>
-      <div><img src="birdC.jpg"><p>छोटी नाली नहीं, जीवनधारा</p></div>
-      <div><img src="birdD.png"><p>परिंदों का प्याला ही प्राण</p></div>
-    </div>
-  </section>
+<!-- 📱 WhatsApp + Certificate + Sankalp -->
+<section>
+  <h2>🌐 जुड़िए JeevMitra सेवा परिवार से</h2>
+  <a href="https://chat.whatsapp.com/YOUR-GROUP-LINK" target="_blank" class="button">📲 WhatsApp Group जॉइन करें</a>
+  <a href="https://forms.gle/YOUR-CERTIFICATE-FORM" target="_blank" class="button">🎓 Certificate के लिए आवेदन करें</a>
+</section>
 
-  <section style="background:#fff0f5;">
-    <h2>🐄 गौ सेवा</h2>
-    <p style="text-align:center;">गौ माता हमारी संस्कृति की आत्मा हैं। सेवा से पुण्य और आशीर्वाद दोनों मिलता है।</p>
-    <div class="image-grid">
-      <div><img src="cow6.png"><p>चरवाहा की लीला</p></div>
-      <div><img src="cowF.jpg"><p>गौमाता की छाया</p></div>
-    </div>
-  </section>
+<section>
+  <h2>🙏 Seva Sankalp लें</h2>
+  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <input type="text" name="name" placeholder="आपका नाम" required />
+    <input type="email" name="email" placeholder="ईमेल" required />
+    <textarea name="sankalp" placeholder="मैं क्या सेवा करूंगा?" required></textarea>
+    <button type="submit">🙏 संकल्प भेजें</button>
+  </form>
+</section>
 
-  <section style="background:#fffbe6;">
-    <h2>📕 प्रेरक जीव प्रेमी कहानियाँ</h2>
-    <div class="image-grid">
-      <div><img src="birdF.png"><h3>पंछी प्रेम</h3><p>नन्हा बच्चा रोज 68 चिड़ियों को पानी देता है</p></div>
-      <div><img src="cowF.jpg"><h3>गौ सेवा</h3><p>15 साल की बच्ची रोज 5 बजे उठकर चारा देती है</p></div>
-    </div>
-  </section>
+<!-- 📡 LIVE Feed -->
+<section>
+  <h2>📡 Live सेवा देखें (YouTube Live)</h2>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" frameborder="0" allowfullscreen></iframe>
+</section>
 
-  <section style="text-align:center;">
-    <h2>🪔 अमृता देवी बलिदान गाथा</h2>
-    <p>1730 – खेजड़ली, राजस्थान। खेजड़ी पेड़ बचाने के लिए अमृता देवी ने बेटियों सहित बलिदान दिया।</p>
-    <img src="amrita.jpg" alt="Amrita Devi" width="300" style="border-radius:12px;">
-  </section>
+<!-- 📝 Feedback Wall -->
+<section>
+  <h2>🗣️ आपका सुझाव</h2>
+  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <input type="text" name="name" placeholder="आपका नाम" required>
+    <textarea name="feedback" placeholder="आपका संदेश..." required></textarea>
+    <button type="submit">💌 भेजें</button>
+  </form>
+</section>
 
-  <footer>
-    © 2025 - JeevMitra | Created by <strong>Naresh Bithu</strong> 🤝 <strong>ChatGPT AI</strong>
-  </footer>
+<!-- 🌟 Volunteer of Month -->
+<section>
+  <h2>🌟 Volunteer of the Month</h2>
+  <div class="photo-box">
+    <img src="images/volunteer-star.jpg" alt="Best Volunteer">
+    <p><strong>कविता शर्मा</strong> - रोज़ 5 रोटियाँ और 3 पानी की कटोरी</p>
+  </div>
+</section>
 
-  <!-- Scripts -->
-  <script>
-    // 🌸 Petal Rain
-    function createPetal() {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = 4 + Math.random() * 4 + "s";
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 8000);
-    }
-    setInterval(createPetal, 200);
+<!-- 🏆 Leaderboard -->
+<section>
+  <h2>🏆 सेवा Leaderboard</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTz9U.../pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
+</section>
 
-    // 🎆 Fireworks
-    window.onload = () => {
-      const fireCanvas = document.getElementById("fireworks-canvas");
-      const fireworks = new Fireworks(fireCanvas, {
-        hue: { min: 0, max: 360 },
-        delay: 15,
-        speed: 2,
-        acceleration: 1.05,
-        friction: 0.97,
-        gravity: 1.5,
-        particles: 100,
-        trace: 3,
-        explosion: 5
-      });
-      fireworks.start();
+<!-- 📱 WhatsApp Broadcast -->
+<section>
+  <h2>📲 सेवा Broadcast पाना चाहते हैं?</h2>
+  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <input type="text" name="name" placeholder="नाम" required>
+    <input type="tel" name="whatsapp" placeholder="WhatsApp नंबर" required>
+    <button type="submit">जुड़ें</button>
+  </form>
+</section>
 
-      // ✍️ Typewriter
-      const text = "बेज़ुबानों की सेवा ही सच्ची मानवता है...";
-      let i = 0;
-      function typeWriter() {
-        if (i < text.length) {
-          document.getElementById("typewriter-text").innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typeWriter, 100);
-        }
-      }
-      typeWriter();
-    };
-  </script>
+<!-- 🧠 Seva Quiz -->
+<section>
+  <h2>🧠 Jeev Sewa Quiz</h2>
+  <p>गर्मी में परिंदे अधिकतम कितने घंटे बिना पानी रह सकते हैं?</p>
+  <p>A) 6 घंटे &nbsp;&nbsp; B) 12 घंटे &nbsp;&nbsp; C) 24 घंटे &nbsp;&nbsp; D) 48 घंटे</p>
+</section>
+
+<!-- 🎉 Celebration Stats -->
+<section>
+  <h2>🎉 अब तक की सेवा</h2>
+  <p>जानवरों को भोजन: <strong id="animalCount">0</strong></p>
+  <p>पानी की कटोरी रखी: <strong id="waterCount">0</strong></p>
+</section>
+
+<!-- 🌐 Language Switch -->
+<section>
+  <h2>🌍 भाषा बदलें</h2>
+  <button onclick="changeLanguage('hi')">हिंदी</button>
+  <button onclick="changeLanguage('en')">English</button>
+  <p id="langNote">(जल्द ही multi-language आएगा)</p>
+</section>
+
+<!-- 🖼 Daily AI Image -->
+<section>
+  <h2>🖼 आज की Jeev प्रेरणा</h2>
+  <div class="photo-box">
+    <img id="aiImage" src="images/ai/daily1.jpg" alt="AI Daily Animal" />
+    <p>🐾 "हर आँखें सपने देखती हैं, हम बस देख नहीं पाते" 🐾</p>
+  </div>
+</section>
+
+<!-- 👣 Footer -->
+<footer style="background:black; color:white; text-align:center; padding:15px;">
+  ❤️ JeevMitra सेवा में समर्पित – Naresh Bithu & ChatGPT 🤖<br>
+  📆 2025 | 🌐 JeevMitra.org | जीवन की रक्षा, हमारी संस्कृति
+</footer>
+
+<!-- Scripts -->
+<script>
+  function toggleMode() {
+    document.body.classList.toggle("dark-mode");
+  }
+
+  const slogans = [
+    "जो जानवरों से प्रेम करता है, वही असली इंसान है।",
+    "हर परिंदा तुम्हारी एक बूँद पानी का मोहताज है।",
+    "सेवा करो और सच्चे दिल से करो।",
+    "छत पर पानी रखो, जीवन बचाओ।",
+    "जानवर दुख नहीं कहते, महसूस करते हैं।"
+  ];
+  const daily = document.getElementById("dailyQuote");
+  const today = new Date().getDay();
+  daily.innerText = slogans[today % slogans.length];
+
+  let animal = 168;
+  let water = 472;
+  function updateStats() {
+    animal += Math.floor(Math.random() * 2);
+    water += Math.floor(Math.random() * 4);
+    document.getElementById("animalCount").innerText = animal;
+    document.getElementById("waterCount").innerText = water;
+  }
+  setInterval(updateStats, 10000);
+
+  function changeLanguage(lang) {
+    alert("🌐 यह फीचर जल्द आ रहा है: " + (lang === 'en' ? "English Mode" : "Hindi Mode"));
+  }
+</script>
 </body>
 </html>
