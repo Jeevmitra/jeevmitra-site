@@ -1,0 +1,46 @@
+# ===============================================
+# 🧠 JeevMitra SEO Auto Content Generator
+# 🔗 Adds daily keyword-based HTML pages for SEO
+# ===============================================
+
+name: 🧠 Auto SEO Content Push
+
+on:
+  schedule:
+    - cron: '15 3 * * *'   # Daily at 3:15 AM UTC
+  workflow_dispatch:
+
+jobs:
+  seo-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Clone the repo
+        uses: actions/checkout@v3
+
+      - name: 📄 Generate SEO-rich HTML page
+        run: |
+          mkdir -p seo
+          today=$(date +'%Y-%m-%d')
+          keyword="Donate to street animals in India"
+          file="seo/$today-keyword.html"
+          echo "<!DOCTYPE html>
+          <html lang='en'>
+          <head>
+            <meta charset='UTF-8'>
+            <title>$keyword | JeevMitra</title>
+            <meta name='description' content='Support street animals and birds with JeevMitra donation. Help dogs, cows, birds, and more.'>
+          </head>
+          <body>
+            <h1>$keyword</h1>
+            <p>JeevMitra is India's most trusted donation platform to help stray dogs, thirsty birds, and voiceless animals. Every rupee goes directly to their food, shelter, and water.</p>
+            <p><a href='/jeevmitra-site/'>Visit main donation page</a></p>
+          </body>
+          </html>" > $file
+
+      - name: 📤 Commit & push new SEO content
+        run: |
+          git config user.name "JeevMitra Bot"
+          git config user.email "bot@jeevmitra.in"
+          git add seo/
+          git commit -m "📈 SEO Boost: Added keyword page for today"
+          git push
