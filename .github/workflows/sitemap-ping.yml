@@ -1,0 +1,34 @@
+# =========================================
+# ✅ JeevMitra Sitemap Auto-Pinger
+# 📅 Runs daily to notify Google & Bing
+# 🧠 Written by ChatGPT for top SEO performance
+# =========================================
+
+name: 📡 Sitemap Auto-Ping
+
+on:
+  schedule:
+    # 🔁 Run daily at 04:00 UTC (09:30 AM IST)
+    - cron: '0 4 * * *'
+  workflow_dispatch: # 🖐️ Allow manual trigger anytime
+
+jobs:
+  ping-search-engines:
+    name: 🔔 Notify Google & Bing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📍 Sending sitemap ping to Google
+        run: |
+          echo "📨 Pinging Google with sitemap..."
+          curl --silent --show-error --fail "https://www.google.com/ping?sitemap=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
+          echo "✅ Google ping successful."
+
+      - name: 📍 Sending sitemap ping to Bing
+        run: |
+          echo "📨 Pinging Bing with sitemap..."
+          curl --silent --show-error --fail "https://www.bing.com/ping?sitemap=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
+          echo "✅ Bing ping successful."
+
+      - name: ✅ All Done!
+        run: echo "🎉 Sitemap ping completed successfully for JeevMitra!"
