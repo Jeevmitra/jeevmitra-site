@@ -51,7 +51,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JeevMitra - पशु सेवा</title>
   <style>
-    body<!-- 🎆 Fireworks Canvas -->
+    <body><div class="floating-heart">❤️</div><!-- 🎆 Fireworks Canvas -->
+<canvas id="fireworks-canvas" style="position:fixed;width:100vw;height:100vh;top:0;left:0;z-index:1;pointer-events:none;"></canvas>
+
+<!-- 🌸 CSS-based Petal Rain (NO images) -->
+<style>
+  .petal {
+    position: fixed;
+    top: -10px;
+    width: 15px;
+    height: 15px;
+    background: #ff6ec7;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 9999;
+    animation: fall 6s linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/fireworks.js"></script>
+<script>
+  // Fireworks
+  const fireCanvas = document.getElementById('fireworks-canvas');
+  const fireworks = new Fireworks.default(fireCanvas, {
+    hue: { min: 0, max: 360 },
+    delay: 15,
+    speed: 2,
+    acceleration: 1.05,
+    friction: 0.97,
+    gravity: 1.5,
+    particles: 100,
+    trace: 3,
+    explosion: 5
+  });
+  fireworks.start();
+
+  // Petal Rain
+  function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = 4 + Math.random() * 4 + "s";
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 8000);
+  }
+  setInterval(createPetal, 200);
+</script>
+
+<!-- 🔊 Welcome Sound -->
+<audio autoplay>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_cd5a13cd87.mp3" type="audio/mpeg">
+</audio> <!-- 🎆 Fireworks Canvas -->
 <canvas id="fireworks-canvas" style="position:fixed;width:100vw;height:100vh;top:0;left:0;z-index:9999;pointer-events:none;"></canvas>
 
 <!-- 🌸 Petal Rain -->
