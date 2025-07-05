@@ -1,239 +1,162 @@
-<!-- Final JeevMitra HTML Code: Part 1 + 2 + 3 COMBINED -->
 <!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JeevMitra - जीवन सेवा</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JeevMitra - जीव सेवा अभियान</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Arial', sans-serif;
       background: url('images/dog8.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: white;
-      transition: background 0.5s, color 0.5s;
-    }
-    .dark-mode {
-      background-color: black !important;
-      color: white !important;
+      color: #222;
+      margin: 0;
+      padding: 0;
     }
     header {
-      background-color: rgba(0,0,0,0.7);
-      padding: 20px;
       text-align: center;
-    }
-    header h1 {
-      font-size: 2.6em;
-      margin: 0;
-    }
-    .toggle-mode {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 8px 12px;
-      background: white;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .quote-box {
-      background-color: rgba(0,0,0,0.5);
-      margin: 20px;
-      padding: 15px;
-      font-size: 1.4em;
-      border-left: 5px solid #00ffcc;
-    }
-    .quote-box::before {
-      content: "🧠 आज का संदेश: ";
-      font-weight: bold;
-    }
-    section {
       padding: 20px;
-      background-color: rgba(255,255,255,0.95);
-      color: black;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .section {
+      background: rgba(255, 255, 255, 0.85);
       margin: 20px;
+      padding: 20px;
       border-radius: 15px;
+      box-shadow: 0 0 10px #aaa;
     }
-    a.button, button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: green;
-      color: white;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      margin: 5px;
-      cursor: pointer;
+    .scroll-box {
+      height: 140px;
+      overflow: hidden;
+      position: relative;
     }
-    a.button:hover, button:hover {
-      background: darkgreen;
+    .scroll-content {
+      display: flex;
+      flex-direction: column;
+      animation: scrollSlogans 18s linear infinite;
     }
-    input, textarea {
-      width: 90%;
-      padding: 10px;
-      margin: 5px 0;
-      display: block;
-      font-size: 1em;
+    @keyframes scrollSlogans {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
     }
-    .photo-box {
-      background-color: rgba(0,0,0,0.6);
-      padding: 10px;
-      border-radius: 15px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .photo-box img {
-      max-width: 100%;
+    .birds-images img,
+    .donors img,
+    .story-img {
+      width: 100%;
       border-radius: 10px;
+      margin-top: 10px;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+    }
+    a {
+      color: #006400;
+      font-weight: bold;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-<!-- 🌗 Toggle Button -->
-<button class="toggle-mode" onclick="toggleMode()">🌗 मोड बदलें</button>
-
-<!-- Header -->
 <header>
-  <h1>🐾 JeevMitra - जीवन सेवा अभियान 🐾</h1>
-  <p>जहाँ सेवा है, वहाँ जीवन है</p>
+  <h1>🙏 JeevMitra – जीव सेवा अभियान 🙏</h1>
+  <audio controls autoplay loop>
+    <source src="music/background.mp3" type="audio/mpeg">
+    आपका ब्राउज़र म्यूज़िक प्ले नहीं कर पा रहा।
+  </audio>
 </header>
 
-<!-- 🎵 Background Music -->
-<audio autoplay loop>
-  <source src="music/bg-music.mp3" type="audio/mp3" />
-</audio>
+<div class="section">
+  <h2>🧠 Daily AI-Generated Slogan</h2>
+  <p>🐾 "दया का मतलब सिर्फ़ इंसानों तक सीमित नहीं होना चाहिए।"</p>
+</div>
 
-<!-- 🧠 Daily Quote -->
-<div class="quote-box" id="dailyQuote">Loading...</div>
-
-<!-- 📱 WhatsApp + Certificate + Sankalp -->
-<section>
-  <h2>🌐 जुड़िए JeevMitra सेवा परिवार से</h2>
-  <a href="https://chat.whatsapp.com/YOUR-GROUP-LINK" target="_blank" class="button">📲 WhatsApp Group जॉइन करें</a>
-  <a href="https://forms.gle/YOUR-CERTIFICATE-FORM" target="_blank" class="button">🎓 Certificate के लिए आवेदन करें</a>
-</section>
-
-<section>
-  <h2>🙏 Seva Sankalp लें</h2>
-  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-    <input type="text" name="name" placeholder="आपका नाम" required />
-    <input type="email" name="email" placeholder="ईमेल" required />
-    <textarea name="sankalp" placeholder="मैं क्या सेवा करूंगा?" required></textarea>
-    <button type="submit">🙏 संकल्प भेजें</button>
-  </form>
-</section>
-
-<!-- 📡 LIVE Feed -->
-<section>
-  <h2>📡 Live सेवा देखें (YouTube Live)</h2>
-  <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" frameborder="0" allowfullscreen></iframe>
-</section>
-
-<!-- 📝 Feedback Wall -->
-<section>
-  <h2>🗣️ आपका सुझाव</h2>
-  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-    <input type="text" name="name" placeholder="आपका नाम" required>
-    <textarea name="feedback" placeholder="आपका संदेश..." required></textarea>
-    <button type="submit">💌 भेजें</button>
-  </form>
-</section>
-
-<!-- 🌟 Volunteer of Month -->
-<section>
-  <h2>🌟 Volunteer of the Month</h2>
-  <div class="photo-box">
-    <img src="images/volunteer-star.jpg" alt="Best Volunteer">
-    <p><strong>कविता शर्मा</strong> - रोज़ 5 रोटियाँ और 3 पानी की कटोरी</p>
+<div class="section">
+  <h2>💬 भावुक स्लोगन – Scroll होते हुए</h2>
+  <div class="scroll-box">
+    <div class="scroll-content">
+      <p>🐾 "प्राणी सेवा ही परम धर्म है"</p>
+      <p>🕊️ "जो बोल नहीं सकते, उनके लिए बोलो"</p>
+      <p>🐕 "कुत्ते भूखे न रहें – इंसान बनो"</p>
+      <p>🐦 "एक परिंदा बोले: 'पानी दो ना भाई'"</p>
+      <p>🌿 "जहां दया है, वहां परमात्मा है"</p>
+      <p>🐄 "गाय माँ का आँसू – धरती का श्राप है"</p>
+      <p>🐶 "हर जीवन मायने रखता है – छोटा हो या बड़ा"</p>
+      <p>🌞 "गर्मी में एक कटोरी पानी – लाखों का पुण्य"</p>
+      <p>🕉️ "सेवा से बड़ा कोई धर्म नहीं"</p>
+      <p>👣 "जहां पग रुकते हैं, वहां छांव बना दो – किसी जानवर के लिए"</p>
+    </div>
   </div>
-</section>
+</div>
+<div class="section">
+  <h2>📚 सच्ची कहानियाँ – प्रेरणा देने वाली जीव सेवा</h2>
 
-<!-- 🏆 Leaderboard -->
-<section>
-  <h2>🏆 सेवा Leaderboard</h2>
-  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTz9U.../pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
-</section>
+  <h3>1. अमृता देवी बिश्नोई (राजस्थान – 1730)</h3>
+  <p>“सर कटे तो चलेगा, लेकिन पेड़ न कटे।” खेजड़ली गाँव में अमृता देवी और 363 बिश्नोई भाइयों ने पेड़ों को बचाने के लिए अपने प्राण दिए।</p>
 
-<!-- 📱 WhatsApp Broadcast -->
-<section>
-  <h2>📲 सेवा Broadcast पाना चाहते हैं?</h2>
-  <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-    <input type="text" name="name" placeholder="नाम" required>
-    <input type="tel" name="whatsapp" placeholder="WhatsApp नंबर" required>
-    <button type="submit">जुड़ें</button>
-  </form>
-</section>
+  <h3>2. मोती – मंदिर वाला कुत्ता (जयपुर)</h3>
+  <p>जयपुर के मंदिर में आने वाला मोती हर रोज़ आरती में भाग लेता था। उसकी मृत्यु पर पूरा मंदिर रोया, और वैदिक विधि से अंतिम संस्कार किया गया।</p>
+  <img src="dog5.jpg" alt="मोती मंदिर का कुत्ता" class="story-img">
 
-<!-- 🧠 Seva Quiz -->
-<section>
-  <h2>🧠 Jeev Sewa Quiz</h2>
-  <p>गर्मी में परिंदे अधिकतम कितने घंटे बिना पानी रह सकते हैं?</p>
-  <p>A) 6 घंटे &nbsp;&nbsp; B) 12 घंटे &nbsp;&nbsp; C) 24 घंटे &nbsp;&nbsp; D) 48 घंटे</p>
-</section>
+  <h3>3. हुसैन साहब – कबूतरों के बाबा (दिल्ली)</h3>
+  <p>सुबह 4 बजे उठकर 1000+ कबूतरों को रोज़ दाना-पानी देना, जीवन का एकमात्र उद्देश्य।</p>
 
-<!-- 🎉 Celebration Stats -->
-<section>
-  <h2>🎉 अब तक की सेवा</h2>
-  <p>जानवरों को भोजन: <strong id="animalCount">0</strong></p>
-  <p>पानी की कटोरी रखी: <strong id="waterCount">0</strong></p>
-</section>
+  <h3>4. पिंकी दीदी – डॉग मदर (मुंबई)</h3>
+  <p>हर महीने की सैलरी का बड़ा हिस्सा 40 से ज्यादा स्ट्रीट डॉग्स को खाना, गर्मियों में पानी और प्लास्टिक के छज्जे लगाने में खर्च करती थीं।</p>
 
-<!-- 🌐 Language Switch -->
-<section>
-  <h2>🌍 भाषा बदलें</h2>
-  <button onclick="changeLanguage('hi')">हिंदी</button>
-  <button onclick="changeLanguage('en')">English</button>
-  <p id="langNote">(जल्द ही multi-language आएगा)</p>
-</section>
+  <h3>5. गुड्डू और सूरज – तोते की दोस्ती (अजमेर)</h3>
+  <p>12 साल का सूरज एक घायल तोते को बचाता है, और वो तोता रोज़ उसके कंधे पर बैठकर स्कूल तक जाता है।</p>
 
-<!-- 🖼 Daily AI Image -->
-<section>
-  <h2>🖼 आज की Jeev प्रेरणा</h2>
-  <div class="photo-box">
-    <img id="aiImage" src="images/ai/daily1.jpg" alt="AI Daily Animal" />
-    <p>🐾 "हर आँखें सपने देखती हैं, हम बस देख नहीं पाते" 🐾</p>
+  <h3>6. गौशाला बाबा (बीकानेर)</h3>
+  <p>300 से ज्यादा गायों की सेवा करने वाले संत, जिनका कहना था – “गाय का आँसू भगवान का आदेश है।”</p>
+  <img src="cowF.jpg" alt="गौशाला बाबा की गाय" class="story-img">
+</div>
+
+<div class="section">
+  <h2>🦜 Birds Section + Emotional Slogans</h2>
+  <div class="birds-images">
+    <img src="birdA.jpg" alt="Bird with water bowl">
+    <p>“गर्मी में दाना-पानी का संकल्प – पक्षियों की रक्षा हमारा धर्म।”</p>
+    <img src="birdC.jpg" alt="Bird perched">
+    <p>“जब वो बोल नहीं सकते, तब हमें बोलना होगा।”</p>
   </div>
-</section>
+</div>
 
-<!-- 👣 Footer -->
-<footer style="background:black; color:white; text-align:center; padding:15px;">
-  ❤️ JeevMitra सेवा में समर्पित – Naresh Bithu & ChatGPT 🤖<br>
-  📆 2025 | 🌐 JeevMitra.org | जीवन की रक्षा, हमारी संस्कृति
+<div class="section">
+  <h2>📊 Volunteer / Donors Leaderboard</h2>
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTJWYXXfqCZx-auYdFN4vt5gnPWlYTGktcSLeD9xgtNAaZ_eP-CH_5zHO458ZueH1G0PC9cECQs2ebS/pubhtml?widget=true&headers=false" height="400"></iframe>
+</div>
+
+<div class="section">
+  <h2>📝 Feedback + संकल्प</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform?embedded=true" height="500"></iframe>
+</div>
+
+<div class="section">
+  <h2>📺 Live YouTube Feed</h2>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" allowfullscreen></iframe>
+</div>
+
+<div class="section">
+  <h2>📩 WhatsApp Broadcast Invite</h2>
+  <a href="https://wa.me/917357897775?text=JeevMitra%20Broadcast%20Join%20Request" target="_blank">
+    👉 हमारे WhatsApp Broadcast से जुड़ें
+  </a>
+</div>
+
+<div class="section">
+  <h2>🌟 Donors Showcase (Auto)</h2>
+  <div class="donors">
+    <img src="images/donors/donor1.jpg" alt="Donor 1">
+    <img src="images/donors/donor2.jpg" alt="Donor 2">
+    <p>🙏 आप सभी का सहयोग अमूल्य है 🙏</p>
+  </div>
+</div>
+
+<footer style="text-align:center; margin-top: 30px;">
+  <p>Website by: Naresh Bithu & ChatGPT 🤝 | © 2025 JeevMitra</p>
 </footer>
 
-<!-- Scripts -->
-<script>
-  function toggleMode() {
-    document.body.classList.toggle("dark-mode");
-  }
-
-  const slogans = [
-    "जो जानवरों से प्रेम करता है, वही असली इंसान है।",
-    "हर परिंदा तुम्हारी एक बूँद पानी का मोहताज है।",
-    "सेवा करो और सच्चे दिल से करो।",
-    "छत पर पानी रखो, जीवन बचाओ।",
-    "जानवर दुख नहीं कहते, महसूस करते हैं।"
-  ];
-  const daily = document.getElementById("dailyQuote");
-  const today = new Date().getDay();
-  daily.innerText = slogans[today % slogans.length];
-
-  let animal = 168;
-  let water = 472;
-  function updateStats() {
-    animal += Math.floor(Math.random() * 2);
-    water += Math.floor(Math.random() * 4);
-    document.getElementById("animalCount").innerText = animal;
-    document.getElementById("waterCount").innerText = water;
-  }
-  setInterval(updateStats, 10000);
-
-  function changeLanguage(lang) {
-    alert("🌐 यह फीचर जल्द आ रहा है: " + (lang === 'en' ? "English Mode" : "Hindi Mode"));
-  }
-</script>
 </body>
 </html>
