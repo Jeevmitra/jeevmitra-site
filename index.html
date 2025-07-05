@@ -74,7 +74,35 @@
   </style>
 </head>
 <body>
+<!-- 🧠 PART 10 SCRIPT -->
+<script>
+  let darkMode = false;
+  let hindi = true;
 
+  function toggleMode() {
+    darkMode = !darkMode;
+    document.body.style.backgroundColor = darkMode ? "#121212" : "#ffffff";
+    document.body.style.color = darkMode ? "#f5f5f5" : "#222";
+    document.querySelectorAll("section").forEach(sec => {
+      sec.style.backgroundColor = darkMode ? "#1e1e1e" : "#fffce8";
+      sec.style.color = darkMode ? "#f5f5f5" : "#222";
+    });
+  }
+
+  function toggleLanguage() {
+    hindi = !hindi;
+    const hindiTexts = document.querySelectorAll(".lang-hindi");
+    const engTexts = document.querySelectorAll(".lang-eng");
+
+    hindiTexts.forEach(el => el.style.display = hindi ? "block" : "none");
+    engTexts.forEach(el => el.style.display = hindi ? "none" : "block");
+  }
+
+  window.onload = () => {
+    document.querySelectorAll(".lang-eng").forEach(el => el.style.display = "none");
+  };
+</script>
+</body>
   <header>
     <h1>🐾 JeevMitra</h1>
     <p>“एक बेज़ुबान की मदद – सबसे बड़ी सेवा”</p>
