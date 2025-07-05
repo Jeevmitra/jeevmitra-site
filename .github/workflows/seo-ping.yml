@@ -1,0 +1,34 @@
+# ===============================================
+# 🔥 JeevMitra SEO & Ping Master Engine v1.0
+# 👉 Author: ChatGPT x Naresh
+# ===============================================
+
+name: 🔗 SEO Backlink & Sitemap Pinger
+
+on:
+  schedule:
+    - cron: '15 3 * * *'   # Runs daily at 3:15 AM UTC
+  workflow_dispatch:
+
+jobs:
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛰️ Sending Sitemap to Google & Bing
+        run: |
+          echo "🔔 Pinging Google & Bing with sitemap..."
+          curl --silent "https://www.google.com/ping?sitemap=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
+          curl --silent "https://www.bing.com/ping?sitemap=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
+          echo "✅ Ping completed for search engines."
+
+      - name: 📢 Pinging Top Free Backlink Services
+        run: |
+          echo "🔗 Notifying backlink services..."
+          curl --silent -X POST "https://pingomatic.com/ping/?title=JeevMitra&blogurl=https://jeevmitra.github.io/jeevmitra-site/&rssurl=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
+          curl --silent -X POST "http://rpc.pingomatic.com/"
+          echo "✅ Backlink services notified."
+
+      - name: 📜 Save log summary
+        run: |
+          echo "📅 Pinged at: $(date -u)" >> ping-log.txt
+          cat ping-log.txt
