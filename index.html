@@ -112,56 +112,7 @@
   <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c5d3a1cd87.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-  // Fireworks setup
-  const fireCanvas = document.getElementById('fireworks-canvas');
-  const fireworks = new Fireworks.default(fireCanvas, {
-    autoresize: true,
-    opacity: 0.9,
-    acceleration: 1.08,
-    friction: 0.95,
-    gravity: 1.6,
-    particles: 80,
-    trace: 4,
-    explosion: 6,
-    intensity: 40,
-    traceSpeed: 5,
-    hue: { min: 0, max: 360 },
-    delay: { min: 15, max: 35 },
-    rocketsPoint: { min: 0, max: 100 }
-  });
-  fireworks.start();
-
-  // Petal Rain
-  const petals = document.getElementById("petals");
-  for (let i = 0; i < 40; i++) {
-    const petal = document.createElement("div");
-    petal.className = "pf-petal";
-    petal.style.left = `${Math.random() * 100}vw`;
-    petal.style.animationDelay = `${Math.random() * 3}s`;
-    petals.appendChild(petal);
-  }
-
-  // Floating ❤️ hearts
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.className = "floating-heart";
-    heart.textContent = "❤️ Donate";
-    heart.style.left = `${Math.random() * 90 + 5}vw`;
-    heart.style.top = `${Math.random() * 80 + 10}vh`;
-    heart.style.animationDelay = `${Math.random() * 3}s`;
-    document.body.appendChild(heart);
-  }
-
-  // Auto stop all after 7 sec
-  setTimeout(() => {
-    fireworks.stop();
-    fireCanvas.style.display = "none";
-    petals.style.display = "none";
-    document.querySelectorAll('.floating-heart').forEach(h => h.remove());
-    document.getElementById('entry-sound').pause();
-  }, 7000);
-</script> {
+{
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-image: url('dog8.jpg');
