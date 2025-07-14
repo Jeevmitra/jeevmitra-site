@@ -1,14 +1,1 @@
-name: 🕊 Sitemap Auto-Ping (Bing Only)
 
-on:
-  schedule:
-    - cron: '0 4 * * *'  # Daily at 9:30 AM IST
-  workflow_dispatch:
-
-jobs:
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📡 Pinging Bing with sitemap
-        run: |
-          curl --fail "https://www.bing.com/ping?sitemap=https://jeevmitra.github.io/jeevmitra-site/sitemap.xml"
